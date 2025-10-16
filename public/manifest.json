@@ -1,0 +1,16 @@
+{
+  "name": "绝味 JUEWEI - Braised Snacks",
+  "short_name": "绝味 JUEWEI",
+  "description": "绝味鸭脖 - 全球16,000+门店，北美本地供应链，CFIA/FDA/SQF认证，新鲜安全可靠",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
