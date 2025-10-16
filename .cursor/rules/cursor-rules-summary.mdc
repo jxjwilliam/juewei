@@ -1,0 +1,259 @@
+---
+description: Comprehensive summary of all Cursor Rules for the Juewei UI restaurant website project
+globs: .cursor/rules/**/*.mdc
+alwaysApply: true
+---
+
+# Cursor Rules Summary - Juewei UI Project
+
+## 📋 **Project Overview**
+
+**Juewei UI** is a modern restaurant/food company website built with Next.js 15, featuring:
+- **Framework**: Next.js 15 with App Router architecture
+- **Styling**: Tailwind CSS 4.x with custom food brand design system
+- **UI Components**: shadcn/ui with Radix UI primitives
+- **Internationalization**: Multi-language support (Chinese/English)
+- **Typography**: Source Han Sans font family for Chinese text
+- **Theme**: Food brand colors with warm reds, oranges, and yellows
+
+## 🗂️ **Current Rule Files**
+
+### **Core Rules (Always Applied)**
+1. **[cursor-rules.mdc](mdc:.cursor/rules/cursor-rules.mdc)** - Rule management and creation guidelines
+2. **[restaurant_ui_design.mdc](mdc:.cursor/rules/restaurant_ui_design.mdc)** - Restaurant UI design patterns and best practices
+3. **[project-structure.mdc](mdc:.cursor/rules/project-structure.mdc)** - Juewei UI project structure and organization
+4. **[tech-stack.mdc](mdc:.cursor/rules/tech-stack.mdc)** - Technology stack and dependencies guide
+5. **[landing-components.mdc](mdc:.cursor/rules/landing-components.mdc)** - Restaurant component patterns
+6. **[self-improve.mdc](mdc:.cursor/rules/self-improve.mdc)** - Self-improvement and rule evolution patterns
+7. **[cursor-rules-summary.mdc](mdc:.cursor/rules/cursor-rules-summary.mdc)** - This comprehensive summary
+
+### **Rule Categories**
+
+#### **🎨 Design & Styling Rules**
+- **Restaurant UI Design**: Color palettes, typography, animations, and food brand aesthetics
+- **CSS Conventions**: Mobile-first responsive design, accessibility, and modern CSS patterns
+- **Component Styling**: shadcn/ui integration, Tailwind utilities, and custom design system
+
+#### **🏗️ Architecture Rules**
+- **Project Structure**: Directory organization, file naming, and component hierarchy
+- **Component Patterns**: Restaurant components, UI primitives, and shared utilities
+- **Tech Stack**: Next.js 15, React 18, TypeScript 5, and modern web development practices
+
+#### **📱 Responsive Design Rules**
+- **Mobile-First**: Touch-friendly interfaces, mobile navigation, and responsive typography
+- **Breakpoint Strategy**: Consistent spacing, grid systems, and container utilities
+- **Performance**: Image optimization, lazy loading, and mobile performance
+
+#### **♿ Accessibility Rules**
+- **ARIA Standards**: Proper semantic HTML, focus management, and screen reader support
+- **Keyboard Navigation**: Focus states, tab order, and keyboard interactions
+- **Color Contrast**: WCAG compliance and visual accessibility
+
+## 🎯 **Key Design Principles**
+
+### **Food Brand Identity**
+- **Color Palette**: Warm reds (#E67E22, #D35400), oranges, and yellows for appetizing appeal
+- **Typography**: Source Han Sans for Chinese text, serif/sans-serif combinations
+- **Visual Hierarchy**: Clear content structure with proper spacing and contrast
+- **Cultural Sensitivity**: Chinese font optimization and cultural design patterns
+
+### **Modern Web Standards**
+- **Mobile-First**: Responsive design starting from mobile devices
+- **Performance**: Optimized images, lazy loading, and efficient CSS
+- **Accessibility**: WCAG 2.1 AA compliance with proper semantic markup
+- **SEO**: Structured data, meta tags, and search engine optimization
+
+### **Component Architecture**
+- **shadcn/ui Pattern**: Copy-paste components with minimal dependencies
+- **Radix UI Primitives**: Accessibility-first component foundation
+- **Tailwind CSS**: Utility-first styling with custom design tokens
+- **TypeScript**: Type-safe development with proper interfaces
+
+## 🛠️ **Development Guidelines**
+
+### **File Organization**
+
+```text
+juewei-ui/
+├── app/                    # Next.js App Router pages
+│   ├── about/            # About page
+│   ├── contact/          # Contact page
+│   ├── partnership/      # Partnership page
+│   ├── products/         # Products page
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── components/            # React components
+│   ├── ui/               # shadcn/ui components
+│   ├── banner-section.tsx    # Restaurant banner
+│   ├── hero-carousel.tsx     # Image carousel
+│   ├── brand-advantages.tsx  # Brand highlights
+│   ├── language-switcher.tsx # Language toggle
+│   └── scroll-to-top.tsx     # Scroll functionality
+├── lib/                  # Utility functions and data
+│   ├── data/             # Product data
+│   ├── i18n/             # Internationalization
+│   └── utils.ts          # Utility functions
+├── public/               # Static assets
+│   ├── carousel1/        # Hero images
+│   ├── carousel2/        # Product images
+│   ├── fonts/            # Source Han Sans fonts
+│   └── *.webp            # Optimized images
+├── scripts/              # Python automation
+└── .cursor/rules/        # Cursor Rules documentation
+```
+
+### **Naming Conventions**
+- **Files**: kebab-case for directories, PascalCase for components
+- **Components**: Descriptive names with clear purpose indication
+- **CSS Classes**: Tailwind utilities with custom food brand extensions
+- **Variables**: camelCase for JavaScript, kebab-case for CSS
+
+### **Code Quality Standards**
+- **TypeScript**: Strict mode enabled with proper type definitions
+- **ESLint**: Next.js configuration with custom rules
+- **Prettier**: Code formatting with Tailwind plugin
+- **Git Hooks**: Pre-commit linting and formatting
+
+## 🎨 **Styling System**
+
+### **Color System**
+
+```css
+/* Food Brand Colors */
+--food-red: oklch(0.55 0.22 25);
+--food-orange: oklch(0.65 0.2 40);
+--food-yellow: oklch(0.8 0.15 60);
+--food-green: oklch(0.6 0.15 120);
+--food-blue: oklch(0.6 0.15 240);
+```
+
+### **Typography Scale**
+- **Headings**: Source Han Sans with responsive sizing
+- **Body Text**: Optimized line height and spacing
+- **Chinese Text**: Proper font feature settings and rendering
+- **Responsive**: Mobile-first typography scaling
+
+### **Animation System**
+- **Entrance Animations**: Fade, slide, scale, and bounce effects
+- **Hover States**: Lift, glow, and transform effects
+- **Transitions**: Smooth 300ms ease-out timing
+- **Performance**: GPU-accelerated transforms and opacity
+
+### **Responsive Utilities**
+- **Mobile-First**: Base styles for mobile, enhanced for larger screens
+- **Touch-Friendly**: Minimum 44px touch targets
+- **Container System**: Narrow, wide, and full-width containers
+- **Grid System**: Auto-fit and auto-fill responsive grids
+
+## 📱 **Mobile Optimization**
+
+### **Touch Interface**
+- **Touch Targets**: Minimum 44px for interactive elements
+- **Gesture Support**: Swipe, pinch, and scroll optimizations
+- **Viewport**: Proper meta tags and responsive design
+- **Performance**: Optimized images and lazy loading
+
+### **Navigation**
+- **Mobile Menu**: Collapsible navigation with smooth animations
+- **Breadcrumbs**: Clear navigation hierarchy
+- **Back Button**: Proper browser history handling
+- **Search**: Accessible search functionality
+
+### **Content Strategy**
+- **Readable Text**: Proper contrast and font sizing
+- **Image Optimization**: WebP format with responsive sizing
+- **Loading States**: Skeleton screens and progress indicators
+- **Error Handling**: User-friendly error messages
+
+## 🔧 **Technical Implementation**
+
+### **Next.js 15 Features**
+- **App Router**: File-based routing with layouts
+- **Server Components**: Optimized rendering and performance
+- **Image Optimization**: Next.js Image component with WebP for food photography
+- **Font Optimization**: Source Han Sans for Chinese text with fallbacks
+- **Multi-language**: Internationalization support for Chinese/English
+
+### **Tailwind CSS 4.x**
+- **CSS Variables**: Dynamic theming with food brand colors
+- **Container Queries**: Responsive design with container-based breakpoints
+- **Modern CSS**: CSS Grid, Flexbox, and modern layout techniques
+- **Custom Utilities**: Food brand specific utility classes
+- **Food Brand Colors**: Orange, red, yellow gradients for appetizing appeal
+
+### **Component Library**
+- **shadcn/ui**: Copy-paste components with customization
+- **Radix UI**: Accessibility-first primitives
+- **Custom Components**: Food brand specific implementations
+- **Theme System**: Light/dark mode with food brand colors
+
+## 🚀 **Performance Optimization**
+
+### **Image Strategy**
+- **WebP Format**: Modern image format with fallbacks for food photography
+- **Responsive Images**: Multiple sizes for different screen densities
+- **Lazy Loading**: Intersection Observer API implementation
+- **Food Photography**: Optimized images for restaurant products and carousels
+- **CDN Integration**: Optimized delivery and caching
+
+### **CSS Optimization**
+- **Critical CSS**: Above-the-fold styles inlined
+- **Unused CSS**: PurgeCSS for production builds
+- **CSS Variables**: Dynamic theming without JavaScript
+- **Animation Performance**: GPU-accelerated transforms
+
+### **JavaScript Optimization**
+- **Code Splitting**: Route-based and component-based splitting
+- **Tree Shaking**: Unused code elimination
+- **Bundle Analysis**: Webpack bundle analyzer integration
+- **Lazy Loading**: Dynamic imports for non-critical components
+
+## 📊 **Analytics & Monitoring**
+
+### **Performance Metrics**
+- **Core Web Vitals**: LCP, FID, and CLS monitoring
+- **Lighthouse Scores**: Performance, accessibility, and SEO
+- **Real User Monitoring**: Actual user experience tracking
+- **Error Tracking**: JavaScript error monitoring and reporting
+
+### **User Analytics**
+- **Vercel Analytics**: Built-in performance monitoring for restaurant website
+- **User Behavior**: Page views, interactions, and conversions
+- **Restaurant Analytics**: Food product engagement and language preferences
+- **Multi-language Tracking**: Chinese/English user behavior analysis
+- **Feedback Collection**: Restaurant customer experience feedback systems
+
+## 🔄 **Rule Evolution**
+
+### **Continuous Improvement**
+- **Pattern Recognition**: Identify common implementation patterns
+- **Rule Updates**: Regular updates based on codebase evolution
+- **Best Practices**: Integration of new web standards and techniques
+- **Documentation**: Keep rules synchronized with actual implementation
+
+### **Quality Assurance**
+- **Code Reviews**: Rule compliance checking
+- **Automated Testing**: Linting and formatting enforcement
+- **Performance Monitoring**: Continuous performance optimization
+- **Accessibility Audits**: Regular accessibility compliance checking
+
+## 📚 **Reference Documentation**
+
+### **External Resources**
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [shadcn/ui Components](https://ui.shadcn.com/)
+- [Radix UI Primitives](https://www.radix-ui.com/)
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+
+### **Internal References**
+- [Project Structure](mdc:.cursor/rules/project-structure.mdc) - Juewei UI project organization
+- [Tech Stack Guide](mdc:.cursor/rules/tech-stack.mdc) - Technology stack and dependencies
+- [Restaurant UI Design](mdc:.cursor/rules/restaurant_ui_design.mdc) - Food brand design patterns
+- [Restaurant Components](mdc:.cursor/rules/landing-components.mdc) - Component patterns and best practices
+- [Cursor Rules](mdc:.cursor/rules/cursor-rules.mdc) - Rule management guidelines
+- [Self Improvement](mdc:.cursor/rules/self-improve.mdc) - Rule evolution patterns
+
+---
+
+This summary provides a comprehensive overview of all Cursor Rules for the Juewei UI project. Each rule file contains detailed implementation guidelines, code examples, and best practices for maintaining consistency and quality across the codebase.

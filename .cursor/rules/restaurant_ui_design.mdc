@@ -1,28 +1,5 @@
-# 🍽️ Food & Restaurant Website UI / CSS Design Tips
-
-A curated list of **modern**, **beautiful**, and **interactive** design practices for restaurant and food-related websites.
-
 ---
-
-## 1️⃣ Visual & Layout
-
-- **Full-width hero sections** with image or video backgrounds.
-- **High-quality food photography** (warm lighting, shallow depth).
-- **Grid-based layout** using CSS Grid or Flexbox.
-- **Whitespace-rich design** for elegance and readability.
-- **Responsive single-column layout** for mobile.
-- Use **glassmorphism or neumorphism** for cards and modals.
-
-```css
-.hero {
-  background: url('hero.jpg') center/cover no-repeat;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-```
-
+alwaysApply: true
 ---
 
 ## 2️⃣ Color Palette & Typography
