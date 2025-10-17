@@ -4,17 +4,17 @@ import localFont from 'next/font/local'
 export const sourceHanSans = localFont({
   src: [
     {
-      path: '../public/fonts/source_han_sans/SourceHanSansCN-Regular.otf',
+      path: '../../public/fonts/source_han_sans/SourceHanSansCN-Regular.otf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../public/fonts/source_han_sans/SourceHanSansCN-Medium.otf',
+      path: '../../public/fonts/source_han_sans/SourceHanSansCN-Medium.otf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../public/fonts/source_han_sans/SourceHanSansCN-Bold.otf',
+      path: '../../public/fonts/source_han_sans/SourceHanSansCN-Bold.otf',
       weight: '700',
       style: 'normal',
     },
@@ -34,21 +34,21 @@ export const sourceHanSans = localFont({
   ],
 })
 
-// Source Han Serif font configuration for Chinese text
+// Source Han Serif font configuration for Chinese text (using Sans as fallback)
 export const sourceHanSerif = localFont({
   src: [
     {
-      path: '../public/fonts/source_han_sans/SourceHanSerifCN-Regular.otf',
+      path: '../../public/fonts/source_han_sans/SourceHanSansCN-Regular.otf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../public/fonts/source_han_sans/SourceHanSerifCN-Medium.otf',
+      path: '../../public/fonts/source_han_sans/SourceHanSansCN-Medium.otf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../public/fonts/source_han_sans/SourceHanSerifCN-Bold.otf',
+      path: '../../public/fonts/source_han_sans/SourceHanSansCN-Bold.otf',
       weight: '700',
       style: 'normal',
     },
@@ -65,7 +65,13 @@ export const sourceHanSerif = localFont({
 
 // System font fallback for English text
 export const systemFont = localFont({
-  src: [],
+  src: [
+    {
+      path: '../../public/fonts/source_han_sans/SourceHanSansCN-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
   variable: '--font-system',
   display: 'swap',
   fallback: [

@@ -175,7 +175,7 @@ export function ProductHeroCarousel() {
                   <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
                     <div className="w-full h-full bg-white rounded-2xl p-6 shadow-2xl">
                       <R2Image
-                        src={productCarouselSlides[currentSlide].floatingImage || "/carousel2/product6.webp"}
+                        src={productCarouselSlides[currentSlide].floatingImage || "/images/carousel/product6.webp"}
                         alt={`${productCarouselSlides[currentSlide].title || productCarouselSlides[currentSlide].name}产品展示`}
                         fill
                         className="object-contain"
@@ -185,11 +185,11 @@ export function ProductHeroCarousel() {
                   
                   {/* Floating Product Cards */}
                   <div className="absolute -top-4 -right-4 w-20 h-20 bg-white rounded-xl shadow-lg p-2 animate-bounce-in">
-                    <R2Image src="/carousel2/product6.webp" alt="产品" fill className="object-contain" />
+                    <R2Image src="/images/carousel/product6.webp" alt="产品" fill className="object-contain" />
                   </div>
                   
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white rounded-lg shadow-lg p-2 animate-bounce-in" style={{ animationDelay: '0.5s' }}>
-                    <R2Image src="/carousel2/branch2.webp" alt="产品展示" fill className="object-contain" />
+                    <R2Image src="/images/carousel/branch2.webp" alt="产品展示" fill className="object-contain" />
                   </div>
                 </div>
               </div>

@@ -54,7 +54,7 @@ const carouselSlides = [
   },
   {
     id: 4,
-    image: "/carousel1/spicy-shrimp-balls.webp",
+    image: "/images/carousel/spicy-shrimp-balls.webp",
     title: "麻辣虾球",
     subtitle: "Spicy Shrimp Balls",
     description: "精选湖北潜江小龙虾尾",
@@ -63,7 +63,7 @@ const carouselSlides = [
     ctaLink: "/contact",
     ctaSecondary: "了解更多",
     ctaSecondaryLink: "/products",
-    floatingImage: "/carousel1/duck-kidney-7.webp",
+    floatingImage: "/images/carousel/duck-kidney-7.webp",
     floatingImageAlt: "麻辣鸭脖",
     badge: "热门推荐"
   }
@@ -129,7 +129,7 @@ export function HeroCarousel() {
         <R2Image src={carouselSlides[currentSlide].floatingImage} alt={carouselSlides[currentSlide].floatingImageAlt} fill className="object-contain" />
       </div>
       <div className="absolute bottom-20 left-10 w-24 h-24 opacity-15 animate-pulse">
-        <R2Image src="/carousel1/spicy-lobster6.webp" alt="麻辣龙虾" fill className="object-contain" />
+        <R2Image src="/images/carousel/spicy-lobster6.webp" alt="麻辣龙虾" fill className="object-contain" />
       </div>
       
 
@@ -219,11 +219,11 @@ export function HeroCarousel() {
                   
                   {/* Floating Product Cards */}
                   <div className="absolute -top-4 -right-4 w-20 h-20 bg-white rounded-xl shadow-lg p-2 animate-bounce-in">
-                    <R2Image src="/carousel1/product6.webp" alt="产品" fill className="object-contain" />
+                    <R2Image src="/images/carousel/product6.webp" alt="产品" fill className="object-contain" />
                   </div>
                   
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white rounded-lg shadow-lg p-2 animate-bounce-in" style={{ animationDelay: '0.5s' }}>
-                    <R2Image src="/carousel1/branch2.webp" alt="产品展示" fill className="object-contain" />
+                    <R2Image src="/images/carousel/branch2.webp" alt="产品展示" fill className="object-contain" />
                   </div>
                 </div>
               </div>

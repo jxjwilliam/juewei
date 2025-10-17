@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { performanceMonitor, reportPerformance } from '@/lib/performance-monitoring';
+import { performanceMonitor, reportPerformance } from '@/lib/performance';
 
 /**
  * Performance Monitor Component
@@ -10,7 +10,7 @@ import { performanceMonitor, reportPerformance } from '@/lib/performance-monitor
 export function PerformanceMonitor() {
   useEffect(() => {
     // Initialize performance monitoring
-    const monitor = performanceMonitor;
+    void performanceMonitor;
     
     // Monitor font loading performance
     if (typeof window !== 'undefined') {
@@ -79,8 +79,9 @@ export function PerformanceMonitor() {
         let clsValue = 0;
         const clsObserver = new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
-            if (!(entry as any).hadRecentInput) {
-              clsValue += (entry as any).value;
+            const layoutShiftEntry = entry as PerformanceEntry & { hadRecentInput?: boolean; value?: number };
+            if (!layoutShiftEntry.hadRecentInput) {
+              clsValue += layoutShiftEntry.value || 0;
             }
           }
           console.log(`CLS: ${clsValue}`);

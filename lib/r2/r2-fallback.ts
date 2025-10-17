@@ -24,7 +24,7 @@ export interface FallbackResult {
 /**
  * Check R2 availability
  */
-export async function checkR2Availability(): Promise<boolean> {
+export async function checkR2AvailabilityWithFallback(): Promise<boolean> {
   try {
     const testUrl = getR2ImageUrl('test-connection.webp');
     const response = await fetch(testUrl, { 
@@ -41,7 +41,7 @@ export async function checkR2Availability(): Promise<boolean> {
 /**
  * Get image URL with fallback handling
  */
-export async function getImageUrlWithFallback(
+export async function getImageUrlWithAdvancedFallback(
   imagePath: string,
   options: FallbackOptions = {
     enableFallback: true,
@@ -134,7 +134,7 @@ export async function batchCheckImages(
   }
 ): Promise<FallbackResult[]> {
   const results = await Promise.all(
-    imagePaths.map(path => getImageUrlWithFallback(path, options))
+    imagePaths.map(path => getImageUrlWithAdvancedFallback(path, options))
   );
   
   return results;
@@ -198,7 +198,7 @@ export class R2HealthMonitor {
   }
   
   private async checkHealth(): Promise<void> {
-    const isHealthy = await checkR2Availability();
+    const isHealthy = await checkR2AvailabilityWithFallback();
     this.isHealthy = isHealthy;
     this.lastCheck = new Date();
     
@@ -275,12 +275,12 @@ export const FallbackUtils = {
   /**
    * Check R2 availability
    */
-  checkAvailability: checkR2Availability,
+  checkAvailability: checkR2AvailabilityWithFallback,
   
   /**
    * Get image URL with fallback
    */
-  getImageUrl: getImageUrlWithFallback,
+  getImageUrl: getImageUrlWithAdvancedFallback,
   
   /**
    * Batch check images

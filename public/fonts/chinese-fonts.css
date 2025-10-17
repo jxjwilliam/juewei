@@ -25,52 +25,34 @@
   font-display: swap;
 }
 
-/* Source Han Serif - For headings and important text */
 @font-face {
-  font-family: 'Source Han Serif';
-  src: url('./source_han_serif/SourceHanSerifCN-Regular.otf') format('opentype');
+  font-family: 'Source Han Sans';
+  src: url('./source_han_sans/SourceHanSansCN-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Han Sans';
+  src: url('./source_han_sans/SourceHanSansCN-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Han Sans';
+  src: url('./source_han_sans/SourceHanSansCN-Heavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Han Sans';
+  src: url('./source_han_sans/SourceHanSansCN-Normal.otf') format('opentype');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Han Serif';
-  src: url('./source_han_serif/SourceHanSerifCN-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Han Serif';
-  src: url('./source_han_serif/SourceHanSerifCN-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Noto Sans CJK - Fallback font */
-@font-face {
-  font-family: 'Noto Sans CJK';
-  src: url('./noto_sans_cjk/NotoSansCJK-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans CJK';
-  src: url('./noto_sans_cjk/NotoSansCJK-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans CJK';
-  src: url('./noto_sans_cjk/NotoSansCJK-Bold.otf') format('opentype');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }

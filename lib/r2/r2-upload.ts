@@ -174,7 +174,7 @@ export async function imageExists(filePath: string): Promise<boolean> {
     
     await client.send(command);
     return true;
-  } catch (_error) {
+  } catch {
     return false;
   }
 }
@@ -198,7 +198,7 @@ export async function getImageInfo(filePath: string): Promise<ImageInfo | null> 
       contentType: response.ContentType || 'application/octet-stream',
       metadata: response.Metadata,
     };
-  } catch (_error) {
+  } catch {
     return null;
   }
 }

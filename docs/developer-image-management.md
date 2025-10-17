@@ -92,7 +92,7 @@ chmod +x update-images.sh
 
 #### Timestamp Versioning (Default)
 ```typescript
-import { createImageVersion } from '@/lib/r2-versioning';
+import { createImageVersion } from '@/lib/r2';
 
 // Create versioned URL
 const versionedUrl = createImageVersion('carousel1/hero-01.webp', 'timestamp');
@@ -101,7 +101,7 @@ const versionedUrl = createImageVersion('carousel1/hero-01.webp', 'timestamp');
 
 #### Semantic Versioning
 ```typescript
-import { createImageVersion } from '@/lib/r2-versioning';
+import { createImageVersion } from '@/lib/r2';
 
 // Create semantic version
 const versionedUrl = createImageVersion('carousel1/hero-01.webp', 'semantic', '2.1.0');
@@ -110,7 +110,7 @@ const versionedUrl = createImageVersion('carousel1/hero-01.webp', 'semantic', '2
 
 #### Manual Versioning
 ```typescript
-import { createImageVersion } from '@/lib/r2-versioning';
+import { createImageVersion } from '@/lib/r2';
 
 // Create custom version
 const versionedUrl = createImageVersion('carousel1/hero-01.webp', 'manual', 'spring-2024');
@@ -121,7 +121,7 @@ const versionedUrl = createImageVersion('carousel1/hero-01.webp', 'manual', 'spr
 
 #### Single Image
 ```typescript
-import { invalidateImageCache } from '@/lib/r2-versioning';
+import { invalidateImageCache } from '@/lib/r2';
 
 // Invalidate cache for specific image
 await invalidateImageCache('carousel1/hero-01.webp');
@@ -129,7 +129,7 @@ await invalidateImageCache('carousel1/hero-01.webp');
 
 #### Batch Invalidation
 ```typescript
-import { batchInvalidateCache } from '@/lib/r2-versioning';
+import { batchInvalidateCache } from '@/lib/r2';
 
 // Invalidate multiple images
 const imagePaths = [
@@ -145,7 +145,7 @@ console.log(`Failed: ${result.failed.length}`);
 
 #### Smart Invalidation
 ```typescript
-import { smartCacheInvalidation } from '@/lib/r2-versioning';
+import { smartCacheInvalidation } from '@/lib/r2';
 
 // Smart invalidation based on age and usage
 await smartCacheInvalidation('carousel1/hero-01.webp', {
@@ -159,7 +159,7 @@ await smartCacheInvalidation('carousel1/hero-01.webp', {
 
 ### Upload Images
 ```typescript
-import { uploadImage, uploadOptimizedImage } from '@/lib/r2-upload';
+import { uploadImage, uploadOptimizedImage } from '@/lib/r2';
 
 // Basic upload
 const result = await uploadImage('products/new-product.webp', imageBuffer, {
@@ -187,7 +187,7 @@ const result = await uploadOptimizedImage(
 
 ### Replace Images
 ```typescript
-import { replaceImage } from '@/lib/r2-upload';
+import { replaceImage } from '@/lib/r2';
 
 // Replace existing image
 const result = await replaceImage('carousel1/hero-01.webp', newImageBuffer, {
@@ -201,7 +201,7 @@ const result = await replaceImage('carousel1/hero-01.webp', newImageBuffer, {
 
 ### Delete Images
 ```typescript
-import { deleteImage } from '@/lib/r2-upload';
+import { deleteImage } from '@/lib/r2';
 
 // Delete image
 const result = await deleteImage('products/old-product.webp');
@@ -209,7 +209,7 @@ const result = await deleteImage('products/old-product.webp');
 
 ### Check Image Status
 ```typescript
-import { imageExists, getImageInfo } from '@/lib/r2-upload';
+import { imageExists, getImageInfo } from '@/lib/r2';
 
 // Check if image exists
 const exists = await imageExists('carousel1/hero-01.webp');
@@ -321,7 +321,7 @@ node scripts/inventory-images.js
 ### Automated Monitoring
 ```typescript
 // Example monitoring script
-import { getImageInfo, imageExists } from '@/lib/r2-upload';
+import { getImageInfo, imageExists } from '@/lib/r2';
 
 async function monitorImages() {
   const criticalImages = [

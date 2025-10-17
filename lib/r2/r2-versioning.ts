@@ -39,7 +39,7 @@ export function generateVersionedUrl(
       
     case 'hash':
       // Generate hash-based version (would need file content)
-      const hash = generateContentHash(imagePath);
+      const hash = generateContentHash();
       return getR2ImageUrl(imagePath, { version: hash });
       
     case 'manual':
@@ -56,7 +56,7 @@ export function generateVersionedUrl(
 /**
  * Generate content hash for file (placeholder implementation)
  */
-function generateContentHash(_filePath: string): string {
+function generateContentHash(): string {
   // In a real implementation, this would hash the file content
   // For now, return a timestamp-based hash
   return Date.now().toString(36);
@@ -111,7 +111,7 @@ export async function batchInvalidateCache(imagePaths: string[]): Promise<{
 /**
  * Get version information for an image
  */
-export function getVersionInfo(imagePath: string): VersionInfo {
+export function getVersionInfo(): VersionInfo {
   // In a real implementation, this would query R2 metadata
   // For now, return mock data
   return {
@@ -159,7 +159,7 @@ export function needsCacheInvalidation(
   imagePath: string,
   maxAge: number = 3600000 // 1 hour in milliseconds
 ): boolean {
-  const versionInfo = getVersionInfo(imagePath);
+  const versionInfo = getVersionInfo();
   const now = new Date();
   const age = now.getTime() - versionInfo.lastModified.getTime();
   
@@ -177,7 +177,7 @@ export async function smartCacheInvalidation(
     usageThreshold?: number;
   } = {}
 ): Promise<boolean> {
-  const { maxAge = 3600000, forceInvalidation = false, usageThreshold = 100 } = options;
+  const { maxAge = 3600000, forceInvalidation = false } = options;
   
   if (forceInvalidation) {
     return invalidateImageCache(imagePath);
@@ -211,8 +211,8 @@ export const VersionManager = {
   /**
    * Get version info
    */
-  info: (imagePath: string) => 
-    getVersionInfo(imagePath),
+  info: (_imagePath: string) => 
+    getVersionInfo(),
   
   /**
    * Invalidate cache

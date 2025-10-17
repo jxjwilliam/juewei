@@ -139,8 +139,9 @@ export class PerformanceMonitor {
       let clsValue = 0;
       const observer = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
-          if (!(entry as any).hadRecentInput) {
-            clsValue += (entry as any).value;
+          const layoutShiftEntry = entry as PerformanceEntry & { hadRecentInput?: boolean; value?: number };
+          if (!layoutShiftEntry.hadRecentInput) {
+            clsValue += layoutShiftEntry.value || 0;
           }
         }
         this.recordMetric('cls', clsValue);
@@ -155,7 +156,8 @@ export class PerformanceMonitor {
       const observer = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
           if (entry.name.includes('font')) {
-            const loadTime = entry.responseEnd - entry.startTime;
+            const resourceEntry = entry as PerformanceResourceTiming;
+            const loadTime = resourceEntry.responseEnd - resourceEntry.startTime;
             this.recordMetric('fontLoadTime', loadTime);
           }
         }
@@ -170,7 +172,8 @@ export class PerformanceMonitor {
       const observer = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
           if (entry.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)) {
-            const loadTime = entry.responseEnd - entry.startTime;
+            const resourceEntry = entry as PerformanceResourceTiming;
+            const loadTime = resourceEntry.responseEnd - resourceEntry.startTime;
             this.recordMetric('imageLoadTime', loadTime);
           }
         }
@@ -184,7 +187,7 @@ export class PerformanceMonitor {
       [key]: value,
       timestamp: Date.now(),
       userAgent: navigator.userAgent,
-      connectionType: (navigator as any).connection?.effectiveType,
+      connectionType: (navigator as Navigator & { connection?: { effectiveType?: string } }).connection?.effectiveType,
     };
     
     this.metrics.push(metric);
@@ -233,8 +236,8 @@ export function reportPerformance(metrics: PerformanceMetrics) {
   // In production, send to analytics
   if (process.env.NODE_ENV === 'production') {
     // Send to Vercel Analytics or other analytics service
-    if (typeof window !== 'undefined' && (window as any).va) {
-      (window as any).va('track', 'performance', metrics);
+    if (typeof window !== 'undefined' && (window as Window & { va?: (action: string, event: string, data: unknown) => void }).va) {
+      (window as Window & { va: (action: string, event: string, data: unknown) => void }).va('track', 'performance', metrics);
     }
   }
 }

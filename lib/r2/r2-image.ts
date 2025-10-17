@@ -79,7 +79,7 @@ export async function checkR2Availability(): Promise<boolean> {
     const testUrl = getR2ImageUrl('test-image.webp');
     const response = await fetch(testUrl, { method: 'HEAD' });
     return response.ok;
-  } catch (_error) {
+  } catch {
     return false;
   }
 }

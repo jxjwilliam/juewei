@@ -367,7 +367,7 @@ export function loadNonCriticalCSS() {
     link.href = '/styles/non-critical.css';
     link.media = 'print';
     link.onload = function() {
-      this.media = 'all';
+      (this as HTMLLinkElement).media = 'all';
     };
     document.head.appendChild(link);
   }
