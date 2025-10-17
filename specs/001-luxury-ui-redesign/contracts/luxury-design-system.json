@@ -1,0 +1,329 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Luxury Design System API",
+    "version": "1.0.0",
+    "description": "API contracts for luxury UI redesign components and design system"
+  },
+  "paths": {
+    "/api/design-system/colors": {
+      "get": {
+        "summary": "Get luxury color palette",
+        "responses": {
+          "200": {
+            "description": "Luxury color palette",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LuxuryColorPalette"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/design-system/typography": {
+      "get": {
+        "summary": "Get luxury typography system",
+        "responses": {
+          "200": {
+            "description": "Luxury typography system",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LuxuryTypography"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/design-system/animations": {
+      "get": {
+        "summary": "Get luxury animation presets",
+        "responses": {
+          "200": {
+            "description": "Luxury animation presets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LuxuryAnimation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/components/{componentType}/variants": {
+      "get": {
+        "summary": "Get luxury component variants",
+        "parameters": [
+          {
+            "name": "componentType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["button", "card", "navigation", "carousel", "form"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Luxury component variants",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LuxuryComponentVariant"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/accessibility/check": {
+      "post": {
+        "summary": "Check accessibility compliance",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessibilityCheckRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Accessibility compliance results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessibilityCheckResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LuxuryColorPalette": {
+        "type": "object",
+        "properties": {
+          "primaryBackground": {
+            "type": "string",
+            "description": "Deep charcoal background color",
+            "example": "#1A1A1A"
+          },
+          "secondaryBackground": {
+            "type": "string",
+            "description": "Slightly lighter charcoal for cards",
+            "example": "#2A2A2A"
+          },
+          "accentCopper": {
+            "type": "string",
+            "description": "Warm copper accent color",
+            "example": "#B8860B"
+          },
+          "accentGold": {
+            "type": "string",
+            "description": "Aged gold variant",
+            "example": "#D4AF37"
+          },
+          "spiceRed": {
+            "type": "string",
+            "description": "Chili-inspired red for spice indicators",
+            "example": "#D43D2A"
+          },
+          "textPrimary": {
+            "type": "string",
+            "description": "Off-white/cream text color",
+            "example": "#F5F5F5"
+          },
+          "textSecondary": {
+            "type": "string",
+            "description": "Muted text for descriptions",
+            "example": "#CCCCCC"
+          },
+          "textAccent": {
+            "type": "string",
+            "description": "Accent text for highlights",
+            "example": "#B8860B"
+          }
+        }
+      },
+      "LuxuryTypography": {
+        "type": "object",
+        "properties": {
+          "headingFont": {
+            "type": "string",
+            "description": "Serif font for headings",
+            "example": "Playfair Display"
+          },
+          "bodyFont": {
+            "type": "string",
+            "description": "Sans-serif font for body text",
+            "example": "Inter"
+          },
+          "headingSizes": {
+            "type": "object",
+            "description": "Responsive heading sizes",
+            "properties": {
+              "h1": { "type": "string", "example": "4xl" },
+              "h2": { "type": "string", "example": "3xl" },
+              "h3": { "type": "string", "example": "2xl" }
+            }
+          },
+          "bodySizes": {
+            "type": "object",
+            "description": "Responsive body text sizes",
+            "properties": {
+              "base": { "type": "string", "example": "base" },
+              "lg": { "type": "string", "example": "lg" },
+              "xl": { "type": "string", "example": "xl" }
+            }
+          },
+          "lineHeights": {
+            "type": "object",
+            "description": "Line height values for readability",
+            "properties": {
+              "tight": { "type": "string", "example": "1.2" },
+              "normal": { "type": "string", "example": "1.6" },
+              "relaxed": { "type": "string", "example": "1.8" }
+            }
+          }
+        }
+      },
+      "LuxuryAnimation": {
+        "type": "object",
+        "properties": {
+          "duration": {
+            "type": "number",
+            "description": "Animation duration in seconds",
+            "example": 0.3
+          },
+          "easing": {
+            "type": "string",
+            "description": "Easing function",
+            "example": "ease-in-out"
+          },
+          "transform": {
+            "type": "object",
+            "description": "Transform properties",
+            "properties": {
+              "translateY": { "type": "string", "example": "-2px" },
+              "scale": { "type": "string", "example": "1.05" }
+            }
+          },
+          "opacity": {
+            "type": "object",
+            "description": "Opacity transitions",
+            "properties": {
+              "from": { "type": "number", "example": 0 },
+              "to": { "type": "number", "example": 1 }
+            }
+          },
+          "performance": {
+            "type": "object",
+            "description": "Performance settings",
+            "properties": {
+              "targetFPS": { "type": "number", "example": 60 },
+              "gracefulDegradation": { "type": "boolean", "example": true }
+            }
+          }
+        }
+      },
+      "LuxuryComponentVariant": {
+        "type": "object",
+        "properties": {
+          "componentType": {
+            "type": "string",
+            "description": "Component type",
+            "enum": ["button", "card", "navigation", "carousel", "form"]
+          },
+          "variant": {
+            "type": "string",
+            "description": "Luxury variant name",
+            "example": "luxury-primary"
+          },
+          "colors": {
+            "$ref": "#/components/schemas/LuxuryColorPalette"
+          },
+          "typography": {
+            "$ref": "#/components/schemas/LuxuryTypography"
+          },
+          "animations": {
+            "$ref": "#/components/schemas/LuxuryAnimation"
+          },
+          "spacing": {
+            "type": "object",
+            "description": "Spacing values for variant",
+            "properties": {
+              "padding": { "type": "string", "example": "1.5rem" },
+              "margin": { "type": "string", "example": "1rem" },
+              "gap": { "type": "string", "example": "0.75rem" }
+            }
+          }
+        }
+      },
+      "AccessibilityCheckRequest": {
+        "type": "object",
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "description": "Component identifier"
+          },
+          "colorCombinations": {
+            "type": "array",
+            "description": "Color combinations to check",
+            "items": {
+              "type": "object",
+              "properties": {
+                "foreground": { "type": "string" },
+                "background": { "type": "string" }
+              }
+            }
+          },
+          "fontSizes": {
+            "type": "array",
+            "description": "Font sizes to check",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "AccessibilityCheckResponse": {
+        "type": "object",
+        "properties": {
+          "isCompliant": {
+            "type": "boolean",
+            "description": "Whether component meets WCAG 2.1 AA standards"
+          },
+          "contrastRatios": {
+            "type": "array",
+            "description": "Contrast ratio results",
+            "items": {
+              "type": "object",
+              "properties": {
+                "combination": { "type": "string" },
+                "ratio": { "type": "number" },
+                "meetsAA": { "type": "boolean" }
+              }
+            }
+          },
+          "recommendations": {
+            "type": "array",
+            "description": "Accessibility improvement recommendations",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

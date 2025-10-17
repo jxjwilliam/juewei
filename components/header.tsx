@@ -2,147 +2,132 @@
 
 import Link from "next/link"
 import { R2Image } from "@/components/ui/r2-image"
-import { useState } from "react"
-import { Menu, Phone, MapPin, Clock } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Phone, MapPin } from "lucide-react"
+import { LuxuryButton } from "@/components/luxury/luxury-button"
+import { LuxuryText } from "@/components/luxury/luxury-typography"
+import { LuxuryAnimation } from "@/components/luxury/luxury-animations"
+import { LuxuryMobileNavigation } from "@/components/luxury/luxury-mobile-navigation"
+import { LanguageSwitcher } from "@/components/language-switcher"
+import { useLanguage } from "@/lib/i18n/language-context"
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const navigation = [
+  const { t } = useLanguage()
+  
+  // Fallback navigation in case translation fails
+  const fallbackNavigation = [
     { name: "首页", href: "/" },
     { name: "产品", href: "/products" },
     { name: "关于我们", href: "/about" },
+    { name: "联系我们", href: "/contact" },
+    { name: "合作下单", href: "/partnership" },
   ]
+  
+  // Try to get translated navigation, fallback if t is not a function
+  let navigation
+  try {
+    if (typeof t === 'function') {
+      navigation = [
+        { name: t("nav.home"), href: "/" },
+        { name: t("nav.products"), href: "/products" },
+        { name: t("nav.about"), href: "/about" },
+        { name: t("nav.contact"), href: "/contact" },
+        { name: t("nav.partnership"), href: "/partnership" },
+      ]
+    } else {
+      console.warn('Translation function not available, using fallback')
+      navigation = fallbackNavigation
+    }
+  } catch (error) {
+    console.error('Translation error:', error)
+    navigation = fallbackNavigation
+  }
 
   return (
     <>
-      {/* Main Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/95 shadow-lg">
-        <div className="container-wide flex h-20 lg:h-24 items-center justify-between">
-          <Link href="/" className="flex items-center group">
-            <R2Image 
-              src="/images/logos/juewei-logo2.webp" 
-              alt="绝味 JUEWEI" 
-              width={1007}
-              height={320}
-              className="h-12 lg:h-16 w-auto group-hover:scale-105 transition-all duration-300"
-              priority
-              quality={95}
-            />
-          </Link>
-
-          {/* Desktop Navigation with Contact Info */}
-          <div className="hidden lg:flex items-center space-x-8 xl:space-x-10">
-            <nav className="flex items-center space-x-6 xl:space-x-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm xl:text-base font-semibold transition-all duration-300 hover:text-primary relative group focus-ring py-2"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
-                </Link>
-              ))}
-            </nav>
-            
-            {/* Contact Info */}
-            <div className="flex items-center gap-4 pl-6 border-l border-gray-200">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Phone className="w-4 h-4 text-red-600" />
+      {/* Improved Header with Better Layout */}
+      <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm">
+        <div className="container mx-auto px-4">
+          {/* Top Contact Bar */}
+          <div className="hidden lg:flex items-center justify-between py-2 text-sm text-gray-600 border-b border-gray-100">
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-orange-600" />
                 <span className="font-medium">(604) 521-7618</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <MapPin className="w-4 h-4 text-red-600" />
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-orange-600" />
                 <span>Delta, BC</span>
               </div>
             </div>
+            <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+            </div>
           </div>
 
-          {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 text-sm"
-            >
-              <Link href="/contact">联系我们</Link>
-            </Button>
-            <Button
-              asChild
-              size="sm"
-              className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold text-sm"
-            >
-              <Link href="/partnership">合作下单</Link>
-            </Button>
-          </div>
+          {/* Main Navigation */}
+          <div className="flex h-16 lg:h-20 items-center justify-between">
+            {/* Logo */}
+            <LuxuryAnimation animation="slideRight" delay={0.2}>
+              <Link href="/" className="flex items-center group">
+                <R2Image 
+                  src="/images/logos/juewei-logo2.webp" 
+                  alt="绝味 JUEWEI" 
+                  width={1007}
+                  height={320}
+                  className="h-10 lg:h-12 w-auto group-hover:scale-105 transition-all duration-300"
+                  priority
+                  quality={95}
+                />
+              </Link>
+            </LuxuryAnimation>
 
-          {/* Mobile Navigation */}
-          <div className="flex items-center gap-3 md:hidden">
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="focus-ring">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-80 sm:w-96">
-                <div className="space-y-6 mt-8">
-                  {/* Mobile Contact Info */}
-                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-lg p-4 space-y-3">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Phone className="w-4 h-4 text-red-600" />
-                      <span className="font-semibold">(604) 521-7618</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <MapPin className="w-4 h-4 text-red-600" />
-                      <span>Delta, BC</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <Clock className="w-4 h-4 text-red-600" />
-                      <span>Mon-Sun: 9AM-9PM</span>
-                    </div>
-                    <div className="text-xs text-gray-500 pt-2 border-t border-gray-200">
-                      CFIA认证 · 本地工厂
-                    </div>
-                  </div>
-
-                  {/* Mobile Navigation */}
-                  <nav className="flex flex-col space-y-4">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className="text-lg font-semibold transition-all duration-300 hover:text-primary focus-ring py-3 border-b border-gray-100"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </nav>
-
-                  {/* Mobile CTA Buttons */}
-                  <div className="flex flex-col gap-3 pt-4">
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+            {/* Desktop Navigation */}
+            <LuxuryAnimation animation="slideLeft" delay={0.4}>
+              <nav className="hidden lg:flex items-center space-x-8">
+                {navigation.map((item, index) => (
+                  <LuxuryAnimation key={item.name} animation="slideUp" delay={0.6 + index * 0.1}>
+                    <Link
+                      href={item.href}
+                      className="text-gray-800 hover:text-orange-600 font-medium transition-colors duration-200 relative group py-2"
                     >
-                      <Link href="/contact" onClick={() => setIsOpen(false)}>联系我们</Link>
-                    </Button>
-                    <Button
-                      asChild
-                      className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold"
-                    >
-                      <Link href="/partnership" onClick={() => setIsOpen(false)}>合作下单</Link>
-                    </Button>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+                      <span suppressHydrationWarning>{item.name}</span>
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-300 group-hover:w-full" />
+                    </Link>
+                  </LuxuryAnimation>
+                ))}
+              </nav>
+            </LuxuryAnimation>
+
+            {/* CTA Buttons */}
+            <LuxuryAnimation animation="slideLeft" delay={0.8}>
+              <div className="hidden lg:flex items-center gap-3">
+                <LuxuryButton
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300"
+                >
+                  <Link href="/contact">
+                    <span suppressHydrationWarning>{typeof t === 'function' ? t("nav.contact") : "联系我们"}</span>
+                  </Link>
+                </LuxuryButton>
+                <LuxuryButton
+                  asChild
+                  variant="primary"
+                  size="sm"
+                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold"
+                >
+                  <Link href="/partnership">
+                    <span suppressHydrationWarning>{typeof t === 'function' ? t("nav.partnership") : "合作下单"}</span>
+                  </Link>
+                </LuxuryButton>
+              </div>
+            </LuxuryAnimation>
+
+            {/* Mobile Navigation */}
+            <LuxuryAnimation animation="slideLeft" delay={1.0}>
+              <LuxuryMobileNavigation navigation={navigation} />
+            </LuxuryAnimation>
           </div>
         </div>
       </header>

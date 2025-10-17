@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/lib/i18n/language-context"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { PerformanceMonitor } from "@/components/performance-monitor"
 import { sourceHanSans, sourceHanSerif, systemFont } from "@/lib/fonts"
+import { luxuryFonts } from "@/lib/fonts/luxury-fonts"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://juewei.vercel.app'),
@@ -42,9 +43,30 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh-CN" data-scroll-behavior="smooth">
+    <html 
+      lang="zh-CN" 
+      data-scroll-behavior="smooth"
+      className="luxury-theme"
+      data-luxury-accessibility="enabled"
+    >
+      <head>
+        <meta name="theme-color" content="#1A1A1A" />
+        <meta name="color-scheme" content="dark" />
+        <style>{`
+          :root {
+            --luxury-bg-primary: #1A1A1A;
+            --luxury-bg-secondary: #2A2A2A;
+            --luxury-accent-copper: #B8860B;
+            --luxury-accent-gold: #D4AF37;
+            --luxury-spice: #D43D2A;
+            --luxury-text-primary: #F5F5F5;
+            --luxury-text-secondary: #CCCCCC;
+            --luxury-text-accent: #B8860B;
+          }
+        `}</style>
+      </head>
       <body 
-        className={`${sourceHanSans.variable} ${sourceHanSerif.variable} ${systemFont.variable} font-sans antialiased`}
+        className={`${sourceHanSans.variable} ${sourceHanSerif.variable} ${systemFont.variable} ${luxuryFonts.heading.variable} ${luxuryFonts.body.variable} font-sans antialiased luxury-body bg-luxury-background-primary text-luxury-text-primary`}
         suppressHydrationWarning={true}
       >
         <LanguageProvider>

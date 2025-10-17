@@ -34,9 +34,15 @@ export const R2Image: React.FC<R2ImageProps> = ({
 }) => {
   const [imageError, setImageError] = useState(false);
   const [currentSrc, setCurrentSrc] = useState(() => {
-    // Use local fallback for now since R2 upload needs investigation
-    console.log('Using local fallback for image:', src);
-    return getFallbackUrl(src);
+    // Try R2 first, fallback to local if not available
+    try {
+      const r2Url = getImageUrlWithFallback(src);
+      console.log('Using R2 image:', src, '->', r2Url);
+      return r2Url;
+    } catch (error) {
+      console.log('R2 unavailable, using local fallback for image:', src);
+      return getFallbackUrl(src);
+    }
   });
 
   // Handle error with fail-silent approach
@@ -59,9 +65,15 @@ export const R2Image: React.FC<R2ImageProps> = ({
   useEffect(() => {
     setImageError(false);
     
-    // Use local fallback for now since R2 upload needs investigation
-    console.log('Using local fallback for image:', src);
-    setCurrentSrc(getFallbackUrl(src));
+    // Try R2 first, fallback to local if not available
+    try {
+      const r2Url = getImageUrlWithFallback(src);
+      console.log('Using R2 image:', src, '->', r2Url);
+      setCurrentSrc(r2Url);
+    } catch (error) {
+      console.log('R2 unavailable, using local fallback for image:', src);
+      setCurrentSrc(getFallbackUrl(src));
+    }
   }, [src]);
 
   return (

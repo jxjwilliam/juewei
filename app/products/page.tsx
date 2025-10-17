@@ -1,11 +1,12 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ProductHeroCarousel } from "@/components/product-hero-carousel"
+import { ProductsHeroSection } from "@/components/products-hero-section"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Image from "next/image"
+import { mobileSizes } from "@/lib/design-system/luxury-mobile-images"
 import Link from "next/link"
 import { Star, Phone, MapPin, Clock, Shield, Truck, Heart } from "lucide-react"
 import { products, getProductsByCategory } from "@/lib/data/products"
@@ -15,7 +16,7 @@ export default function ProductsPage() {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="relative">
-        <ProductHeroCarousel />
+        <ProductsHeroSection />
 
         {/* Product Categories */}
         <section className="py-20 bg-white">
@@ -23,11 +24,11 @@ export default function ProductsPage() {
             <Tabs defaultValue="all" className="w-full">
               <div className="text-center mb-12">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-4">产品分类</h2>
-                <TabsList className="grid w-full max-w-md mx-auto grid-cols-4">
+                <TabsList className="grid w-full max-w-lg mx-auto grid-cols-4">
                   <TabsTrigger value="all">全部</TabsTrigger>
                   <TabsTrigger value="seafood">海鲜类</TabsTrigger>
-                  <TabsTrigger value="meat">禽肉类</TabsTrigger>
                   <TabsTrigger value="vegetable">蔬菜类</TabsTrigger>
+                  <TabsTrigger value="tofu">豆制品</TabsTrigger>
                 </TabsList>
               </div>
 
@@ -46,7 +47,8 @@ export default function ProductsPage() {
                             src={product.image}
                             alt={product.name}
                             fill
-                            className="object-contain group-hover:scale-110 transition-transform duration-500"
+                            className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate"
+                            sizes={mobileSizes('card')}
                           />
                           {product.popular && (
                             <Badge className="absolute top-4 left-4 bg-red-600 text-white">
@@ -113,7 +115,7 @@ export default function ProductsPage() {
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 overflow-hidden">
                       <CardContent className="p-0">
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500" />
+                          <Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes={mobileSizes('card')} />
                           {product.popular && <Badge className="absolute top-4 left-4 bg-red-600 text-white">热门推荐</Badge>}
                         </div>
                         <div className="p-6 space-y-4">
@@ -134,13 +136,13 @@ export default function ProductsPage() {
                 </div>
               </TabsContent>
 
-              <TabsContent value="meat" className="mt-8">
+              <TabsContent value="tofu" className="mt-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {getProductsByCategory("禽肉类").map((product) => (
+                  {getProductsByCategory("豆制品").map((product) => (
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 overflow-hidden">
                       <CardContent className="p-0">
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500" />
+                          <Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes={mobileSizes('card')} />
                           {product.popular && <Badge className="absolute top-4 left-4 bg-red-600 text-white">热门推荐</Badge>}
                         </div>
                         <div className="p-6 space-y-4">
@@ -163,11 +165,11 @@ export default function ProductsPage() {
 
               <TabsContent value="vegetable" className="mt-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {products.filter(p => p.category === "蔬菜类" || p.category === "豆制品").map((product) => (
+                  {getProductsByCategory("蔬菜类").map((product) => (
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 overflow-hidden">
                       <CardContent className="p-0">
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500" />
+                          <Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes={mobileSizes('card')} />
                           {product.popular && <Badge className="absolute top-4 left-4 bg-red-600 text-white">热门推荐</Badge>}
                         </div>
                         <div className="p-6 space-y-4">

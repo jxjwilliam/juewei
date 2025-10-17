@@ -1,9 +1,9 @@
-export type Language = "zh" | "en" | "fr"
+export type Language = "zh" | "zh-TW" | "en"
 
 export const languages = {
-  zh: { name: "中文", flag: "🇨🇳" },
+  zh: { name: "简体中文", flag: "🇨🇳" },
+  "zh-TW": { name: "繁體中文", flag: "🇹🇼" },
   en: { name: "English", flag: "🇺🇸" },
-  fr: { name: "Français", flag: "🇫🇷" },
 }
 
 export const translations = {
@@ -84,6 +84,83 @@ export const translations = {
       copyright: "© 2025 绝味. All rights reserved.",
     },
   },
+  "zh-TW": {
+    nav: {
+      home: "首頁",
+      products: "產品",
+      about: "關於我們",
+      contact: "聯繫我們",
+      partnership: "合作下單",
+    },
+    home: {
+      heroTitle: "美味就在這一口",
+      heroSubtitle: "鮮香麻辣，唇齒留香",
+      certificationTitle: "食品安全認證",
+      brandAdvantagesTitle: "品牌核心優勢",
+      localFactory: "本地工廠",
+      localFactoryDesc: "CFIA / FDA / SQF認證",
+      stores: "全球 16,000+ 門店",
+      supply: "北美本地供應鏈",
+      fresh: "新鮮安全可靠",
+      elementsTitle: "絕味的味蕾 4 重奏",
+      element1: "每日配送",
+      element2: "優質食材",
+      element3: "精選花椒",
+      element4: "多重辣椒",
+      partnershipTitle: "想合作經銷？成為我們的合作夥伴",
+      contactUs: "聯繫我們",
+    },
+    products: {
+      title: "產品",
+      subtitle: "探索我們的招牌滷味小吃",
+      philosophyTitle: "我們的理念",
+      philosophyText: "絕味堅持使用最優質的食材和傳統的滷製工藝，為您帶來地道的中國風味。每一口都是對品質的承諾。",
+    },
+    about: {
+      title: "關於絕味",
+      subtitle: "了解我們的品牌故事",
+      companyTitle: "公司簡介",
+      companyText:
+        "絕味食品成立於1997年，是中國領先的滷製品連鎖企業。經過20多年的發展，絕味已在全球開設16,000多家門店，成為深受消費者喜愛的品牌。我們致力於將傳統中國美食帶給全世界。",
+      localTitle: "本地優勢",
+      localText:
+        "在北美，我們建立了完善的本地供應鏈體系，確保產品新鮮度和食品安全。我們的工廠通過CFIA、FDA和SQF認證，嚴格把控每一個生產環節。",
+      philosophyTitle: "我們的理念",
+      philosophyText: "品質第一，顧客至上。我們相信，只有用心做好每一份產品，才能贏得消費者的信任和喜愛。",
+    },
+    contact: {
+      title: "聯繫我們",
+      subtitle: "我們隨時為您服務",
+      infoTitle: "聯繫我們",
+      address: "地址",
+      addressValue: "1531 Derwent Way Delta, V3M4X9, BC, Canada",
+      phone: "電話",
+      phoneValue: "(604)521-7618",
+      email: "郵箱",
+      emailValue: "jueweifoodca@gmail.com",
+      socialTitle: "社交媒體",
+      followUs: "關注我們",
+    },
+    partnership: {
+      title: "合作下單",
+      subtitle: "成為我們的合作夥伴",
+      infoTitle: "商務合作",
+      infoText: "如果您對我們的產品感興趣，想要成為我們的經銷商或合作夥伴，請通過以下方式聯繫我們：",
+      email: "商務郵箱",
+      emailValue: "jueweifoodca@gmail.com",
+      phone: "聯繫電話",
+      phoneValue: "(604)521-7618",
+    },
+    footer: {
+      contactTitle: "聯繫我們",
+      address: "地址",
+      phone: "電話",
+      email: "郵箱",
+      quickLinks: "快速鏈接",
+      followUs: "關注我們",
+      copyright: "© 2025 絕味. All rights reserved.",
+    },
+  },
   en: {
     nav: {
       home: "Home",
@@ -162,86 +239,6 @@ export const translations = {
       quickLinks: "Quick Links",
       followUs: "Follow Us",
       copyright: "© 2025 Juewei. All rights reserved.",
-    },
-  },
-  fr: {
-    nav: {
-      home: "Accueil",
-      products: "Produits",
-      about: "À Propos",
-      contact: "Contact",
-      partnership: "Partenariat",
-    },
-    home: {
-      heroTitle: "Délicieux à Chaque Bouchée",
-      heroSubtitle: "Épicé, Parfumé, Inoubliable",
-      certificationTitle: "Certifications de Sécurité Alimentaire",
-      brandAdvantagesTitle: "Avantages Principaux de la Marque",
-      localFactory: "Usine Locale",
-      localFactoryDesc: "Certifié CFIA / FDA / SQF",
-      stores: "16 000+ Magasins dans le Monde",
-      supply: "Chaîne d'Approvisionnement Nord-Américaine",
-      fresh: "Frais et Sûr",
-      elementsTitle: "Les 4 Éléments de Saveur de Juewei",
-      element1: "Livraison Quotidienne",
-      element2: "Ingrédients Premium",
-      element3: "Poivre du Sichuan Sélectionné",
-      element4: "Variétés de Piments Multiples",
-      partnershipTitle: "Vous Voulez Devenir Partenaire? Rejoignez-Nous",
-      contactUs: "Contactez-Nous",
-    },
-    products: {
-      title: "Produits",
-      subtitle: "Découvrez Nos Collations Braisées Signature",
-      philosophyTitle: "Notre Philosophie",
-      philosophyText:
-        "Juewei insiste sur l'utilisation des meilleurs ingrédients et des techniques de braisage traditionnelles pour vous apporter des saveurs chinoises authentiques. Chaque bouchée est un engagement envers la qualité.",
-    },
-    about: {
-      title: "À Propos de Juewei",
-      subtitle: "Découvrez Notre Histoire",
-      companyTitle: "Présentation de l'Entreprise",
-      companyText:
-        "Fondée en 1997, Juewei Food est la principale chaîne d'aliments braisés de Chine. Après plus de 20 ans de développement, Juewei a ouvert plus de 16 000 magasins dans le monde, devenant une marque bien-aimée. Nous nous engageons à apporter la cuisine chinoise traditionnelle au monde entier.",
-      localTitle: "Avantages Locaux",
-      localText:
-        "En Amérique du Nord, nous avons établi une chaîne d'approvisionnement locale complète pour garantir la fraîcheur des produits et la sécurité alimentaire. Notre usine est certifiée par CFIA, FDA et SQF, contrôlant strictement chaque processus de production.",
-      philosophyTitle: "Notre Philosophie",
-      philosophyText:
-        "Qualité d'abord, client avant tout. Nous croyons que ce n'est qu'en fabriquant chaque produit avec soin que nous pouvons gagner la confiance et l'amour des consommateurs.",
-    },
-    contact: {
-      title: "Contactez-Nous",
-      subtitle: "Nous Sommes Là Pour Vous Aider",
-      infoTitle: "Contactez-Nous",
-      address: "Adresse",
-      addressValue: "1531 Derwent Way Delta, V3M4X9, BC, Canada",
-      phone: "Téléphone",
-      phoneValue: "(604)521-7618",
-      email: "Email",
-      emailValue: "jueweifoodca@gmail.com",
-      socialTitle: "Réseaux Sociaux",
-      followUs: "Suivez-Nous",
-    },
-    partnership: {
-      title: "Partenariat",
-      subtitle: "Devenez Notre Partenaire",
-      infoTitle: "Coopération Commerciale",
-      infoText:
-        "Si vous êtes intéressé par nos produits et souhaitez devenir notre distributeur ou partenaire, veuillez nous contacter:",
-      email: "Email Commercial",
-      emailValue: "jueweifoodca@gmail.com",
-      phone: "Téléphone de Contact",
-      phoneValue: "(604)521-7618",
-    },
-    footer: {
-      contactTitle: "Contactez-Nous",
-      address: "Adresse",
-      phone: "Téléphone",
-      email: "Email",
-      quickLinks: "Liens Rapides",
-      followUs: "Suivez-Nous",
-      copyright: "© 2025 Juewei. Tous droits réservés.",
     },
   },
 }

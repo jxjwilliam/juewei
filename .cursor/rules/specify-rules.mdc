@@ -1,0 +1,27 @@
+# juewei-ui Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2025-10-16
+
+## Active Technologies
+- TypeScript 5, React 19.1.0, Next.js 15.5.4 + Tailwind CSS 4.x, Radix UI primitives, Lucide React icons, Framer Motion (for animations) (001-luxury-ui-redesign)
+- TypeScript 5, React 18, Next.js 15 + Existing language context system, shadcn/ui components, Tailwind CSS (002-multi-language-ui)
+- Browser localStorage for language preference persistence (002-multi-language-ui)
+
+## Project Structure
+```
+src/
+tests/
+```
+
+## Commands
+npm test && npm run lint
+
+## Code Style
+TypeScript 5, React 19.1.0, Next.js 15.5.4: Follow standard conventions
+
+## Recent Changes
+- 002-multi-language-ui: Added TypeScript 5, React 18, Next.js 15 + Existing language context system, shadcn/ui components, Tailwind CSS
+- 001-luxury-ui-redesign: Added TypeScript 5, React 19.1.0, Next.js 15.5.4 + Tailwind CSS 4.x, Radix UI primitives, Lucide React icons, Framer Motion (for animations)
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
