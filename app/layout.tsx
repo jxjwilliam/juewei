@@ -5,15 +5,8 @@ import "./globals.css"
 import { Suspense } from "react"
 import { LanguageProvider } from "@/lib/i18n/language-context"
 import { ScrollToTop } from "@/components/scroll-to-top"
-
-// Using system fonts for better deployment compatibility
-const sourceHanSans = {
-  variable: "--font-source-han-sans",
-}
-
-const sourceHanSansHeading = {
-  variable: "--font-source-han-sans-heading",
-}
+import { PerformanceMonitor } from "@/components/performance-monitor"
+import { sourceHanSans, sourceHanSerif, systemFont } from "@/lib/fonts"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://juewei.vercel.app'),
@@ -32,13 +25,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "绝味 JUEWEI - Braised Snacks | 北美本地工厂",
     description: "绝味鸭脖 - 全球16,000+门店，北美本地供应链，CFIA/FDA/SQF认证，新鲜安全可靠",
-    images: ['/logo.png'],
+    images: ['/images/logos/logo.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: "绝味 JUEWEI - Braised Snacks | 北美本地工厂",
     description: "绝味鸭脖 - 全球16,000+门店，北美本地供应链，CFIA/FDA/SQF认证，新鲜安全可靠",
-    images: ['/logo.png'],
+    images: ['/images/logos/logo.png'],
   },
 }
 
@@ -50,13 +43,14 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" data-scroll-behavior="smooth">
       <body 
-        className={`font-sans ${sourceHanSans.variable} ${sourceHanSansHeading.variable} antialiased`}
+        className={`${sourceHanSans.variable} ${sourceHanSerif.variable} ${systemFont.variable} font-sans antialiased`}
         suppressHydrationWarning={true}
       >
         <LanguageProvider>
           <Suspense fallback={null}>{children}</Suspense>
         </LanguageProvider>
         <ScrollToTop />
+        <PerformanceMonitor />
         <Analytics />
       </body>
     </html>

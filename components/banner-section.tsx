@@ -28,7 +28,7 @@ export function BannerSection() {
           <div className="relative w-full max-w-md lg:max-w-lg group">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500">
               <R2Image
-                src="/banner-1.gif"
+                src="/images/banners/banner-1.gif"
                 alt="绝味品牌动画"
                 width={400}
                 height={200}
@@ -44,7 +44,7 @@ export function BannerSection() {
           <div className="flex items-center justify-center group">
             <div className="relative">
               <R2Image
-                src="/icon6-150x150.png"
+                src="/images/products/icon6-150x150.png"
                 alt="绝味品质保证"
                 width={150}
                 height={150}

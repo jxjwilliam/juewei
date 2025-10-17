@@ -1,0 +1,186 @@
+/* Hero Carousel Component Styles */
+.heroCarousel {
+  @apply relative w-full h-screen overflow-hidden;
+}
+
+.heroSlide {
+  @apply absolute inset-0 transition-opacity duration-1000 ease-in-out;
+}
+
+.heroSlide.active {
+  @apply opacity-100;
+}
+
+.heroSlide.inactive {
+  @apply opacity-0;
+}
+
+.heroImage {
+  @apply w-full h-full object-cover;
+}
+
+.heroContent {
+  @apply absolute inset-0 flex items-center justify-center;
+  @apply bg-gradient-to-t from-black/50 to-transparent;
+}
+
+.heroText {
+  @apply text-center text-white max-w-4xl mx-auto px-4;
+}
+
+.heroTitle {
+  @apply text-4xl md:text-6xl lg:text-7xl font-bold mb-4;
+  @apply text-shadow-lg;
+}
+
+.heroSubtitle {
+  @apply text-xl md:text-2xl lg:text-3xl mb-6;
+  @apply text-shadow;
+}
+
+.heroDescription {
+  @apply text-lg md:text-xl mb-8 max-w-2xl mx-auto;
+  @apply text-shadow;
+}
+
+.heroButtons {
+  @apply flex flex-col sm:flex-row gap-4 justify-center;
+}
+
+.heroButton {
+  @apply px-8 py-4 text-lg font-semibold rounded-lg;
+  @apply transition-all duration-300 ease-out;
+  @apply hover:scale-105 hover:shadow-xl;
+}
+
+.heroButtonPrimary {
+  @apply bg-gradient-to-r from-red-600 to-orange-600;
+  @apply hover:from-red-700 hover:to-orange-700;
+  @apply text-white shadow-lg;
+}
+
+.heroButtonSecondary {
+  @apply bg-white/20 backdrop-blur-sm border border-white/30;
+  @apply hover:bg-white/30 hover:border-white/50;
+  @apply text-white;
+}
+
+.floatingImage {
+  @apply absolute w-32 h-32 opacity-20 animate-bounce;
+  @apply top-20 right-10;
+}
+
+.floatingImage img {
+  @apply w-full h-full object-contain;
+}
+
+.badge {
+  @apply absolute top-4 right-4 bg-white/90 backdrop-blur-sm;
+  @apply px-4 py-2 rounded-full text-sm font-semibold;
+  @apply text-gray-800 shadow-lg;
+}
+
+.navigationDots {
+  @apply absolute bottom-8 left-1/2 transform -translate-x-1/2;
+  @apply flex gap-2;
+}
+
+.dot {
+  @apply w-3 h-3 rounded-full bg-white/50 cursor-pointer;
+  @apply transition-all duration-300 ease-out;
+}
+
+.dot.active {
+  @apply bg-white scale-125;
+}
+
+.dot:hover {
+  @apply bg-white/80 scale-110;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroTitle {
+    @apply text-3xl;
+  }
+  
+  .heroSubtitle {
+    @apply text-lg;
+  }
+  
+  .heroDescription {
+    @apply text-base;
+  }
+  
+  .floatingImage {
+    @apply w-24 h-24 top-16 right-4;
+  }
+}
+
+/* Animation Enhancements */
+.heroSlide {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.heroContent {
+  animation: slideUp 1.2s ease-out 0.3s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Food Brand Specific Styles */
+.foodGradient {
+  background: linear-gradient(135deg, var(--food-red), var(--food-orange));
+}
+
+.foodShadow {
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+}
+
+.foodGlow {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .heroSlide,
+  .heroContent,
+  .floatingImage {
+    animation: none;
+  }
+  
+  .dot {
+    transition: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .heroButtonPrimary {
+    @apply bg-red-800 border-2 border-white;
+  }
+  
+  .heroButtonSecondary {
+    @apply bg-black border-2 border-white;
+  }
+}

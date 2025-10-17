@@ -48,7 +48,7 @@ export function Header() {
         <div className="container-wide flex h-20 lg:h-24 items-center justify-between">
           <Link href="/" className="flex items-center group">
             <R2Image 
-              src="/juewei-logo2.webp" 
+              src="/images/logos/juewei-logo2.webp" 
               alt="绝味 JUEWEI" 
               width={1007}
               height={320}

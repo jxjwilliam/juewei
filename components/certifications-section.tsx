@@ -4,17 +4,17 @@ import { R2Image } from "@/components/ui/r2-image"
 const certifications = [
   {
     name: "CFIA",
-    image: "/cfia.jpg",
+    image: "/images/certifications/cfia.jpg",
     alt: "CFIA认证",
   },
   {
     name: "FDA",
-    image: "/fda.jpg",
+    image: "/images/certifications/fda.jpg",
     alt: "FDA认证",
   },
   {
     name: "SQF",
-    image: "/sqf.jpg",
+    image: "/images/certifications/sqf.jpg",
     alt: "SQF认证",
   },
 ]

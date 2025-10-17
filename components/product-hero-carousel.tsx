@@ -67,14 +67,14 @@ export function ProductHeroCarousel() {
       {/* Floating Food Elements - Dynamic based on current slide */}
       <div className="absolute top-20 right-10 w-32 h-32 opacity-20 animate-bounce">
         <R2Image 
-          src={productCarouselSlides[currentSlide].floatingImage || "/carousel2/product6.webp"} 
+          src={productCarouselSlides[currentSlide].floatingImage || "/images/carousel/product6.webp"} 
           alt={productCarouselSlides[currentSlide].floatingImageAlt || "产品展示"} 
           fill 
           className="object-contain" 
         />
       </div>
       <div className="absolute bottom-20 left-10 w-24 h-24 opacity-15 animate-pulse">
-        <R2Image src="/carousel2/spicy-lobster6.webp" alt="麻辣龙虾" fill className="object-contain" />
+        <R2Image src="/images/carousel/spicy-lobster6.webp" alt="麻辣龙虾" fill className="object-contain" />
       </div>
 
       {/* Hero Content - Dynamic based on current slide */}

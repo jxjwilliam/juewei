@@ -9,7 +9,7 @@ import { useState, useEffect } from "react"
 const carouselSlides = [
   {
     id: 1,
-    image: "/carousel1/duck-kidney-7.webp",
+    image: "/images/carousel/duck-kidney-7.webp",
     title: "麻辣鸭脖",
     subtitle: "Spicy Duck Neck",
     description: "传统工艺制作",
@@ -18,13 +18,13 @@ const carouselSlides = [
     ctaLink: "/contact",
     ctaSecondary: "了解更多",
     ctaSecondaryLink: "/products",
-    floatingImage: "/carousel1/product6.webp",
+    floatingImage: "/images/carousel/product6.webp",
     floatingImageAlt: "产品展示",
     badge: "CFIA认证"
   },
   {
     id: 2,
-    image: "/carousel1/spicy-lobster6.webp",
+    image: "/images/carousel/spicy-lobster6.webp",
     title: "麻辣龙虾",
     subtitle: "Spicy Lobster",
     description: "精选优质龙虾",
@@ -33,13 +33,13 @@ const carouselSlides = [
     ctaLink: "/products",
     ctaSecondary: "联系我们",
     ctaSecondaryLink: "/contact",
-    floatingImage: "/carousel1/branch2.webp",
+    floatingImage: "/images/carousel/branch2.webp",
     floatingImageAlt: "产品展示",
     badge: "CFIA认证"
   },
   {
     id: 3,
-    image: "/carousel1/hero-01.webp",
+    image: "/images/carousel/hero-01.webp",
     title: "绝味",
     subtitle: "JUEWEI",
     description: "麻辣鲜香 · 唇齿留香",
@@ -48,7 +48,7 @@ const carouselSlides = [
     ctaLink: "/products",
     ctaSecondary: "成为合作伙伴",
     ctaSecondaryLink: "/partnership",
-    floatingImage: "/carousel1/spicy-shrimp-balls.webp",
+    floatingImage: "/images/carousel/spicy-shrimp-balls.webp",
     floatingImageAlt: "麻辣虾球",
     badge: "全球 16,000+ 门店"
   },
