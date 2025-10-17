@@ -14,35 +14,10 @@ export function Header() {
     { name: "首页", href: "/" },
     { name: "产品", href: "/products" },
     { name: "关于我们", href: "/about" },
-    { name: "联系我们", href: "/contact" },
-    { name: "合作下单", href: "/partnership" },
   ]
 
   return (
     <>
-      {/* Top Contact Bar */}
-      <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-2 text-sm">
-        <div className="container-wide flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span>(604) 521-7618</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
-              <span>Delta, BC</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              <span>Mon-Sun: 9AM-9PM</span>
-            </div>
-          </div>
-          <div className="hidden sm:flex items-center gap-4">
-            <span className="text-orange-100">CFIA认证 · 本地工厂</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header */}
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/95 shadow-lg">
         <div className="container-wide flex h-20 lg:h-24 items-center justify-between">
@@ -58,34 +33,48 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm xl:text-base font-semibold transition-all duration-300 hover:text-primary relative group focus-ring py-2"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-          </nav>
+          {/* Desktop Navigation with Contact Info */}
+          <div className="hidden lg:flex items-center space-x-8 xl:space-x-10">
+            <nav className="flex items-center space-x-6 xl:space-x-8">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm xl:text-base font-semibold transition-all duration-300 hover:text-primary relative group focus-ring py-2"
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ))}
+            </nav>
+            
+            {/* Contact Info */}
+            <div className="flex items-center gap-4 pl-6 border-l border-gray-200">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Phone className="w-4 h-4 text-red-600" />
+                <span className="font-medium">(604) 521-7618</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <MapPin className="w-4 h-4 text-red-600" />
+                <span>Delta, BC</span>
+              </div>
+            </div>
+          </div>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
             <Button
               asChild
               variant="outline"
               size="sm"
-              className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+              className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 text-sm"
             >
               <Link href="/contact">联系我们</Link>
             </Button>
             <Button
               asChild
               size="sm"
-              className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold"
+              className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold text-sm"
             >
               <Link href="/partnership">合作下单</Link>
             </Button>
@@ -103,14 +92,21 @@ export function Header() {
               <SheetContent side="right" className="w-80 sm:w-96">
                 <div className="space-y-6 mt-8">
                   {/* Mobile Contact Info */}
-                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-lg p-4 space-y-2">
+                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-lg p-4 space-y-3">
                     <div className="flex items-center gap-2 text-sm">
                       <Phone className="w-4 h-4 text-red-600" />
                       <span className="font-semibold">(604) 521-7618</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <MapPin className="w-4 h-4" />
+                      <MapPin className="w-4 h-4 text-red-600" />
                       <span>Delta, BC</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <Clock className="w-4 h-4 text-red-600" />
+                      <span>Mon-Sun: 9AM-9PM</span>
+                    </div>
+                    <div className="text-xs text-gray-500 pt-2 border-t border-gray-200">
+                      CFIA认证 · 本地工厂
                     </div>
                   </div>
 
