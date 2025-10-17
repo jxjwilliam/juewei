@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
+import { R2Image } from "@/components/ui/r2-image"
 import Link from "next/link"
 import { Shield, Globe, Truck, Star, ArrowRight, CheckCircle } from "lucide-react"
 
@@ -86,7 +86,7 @@ export function BrandAdvantages() {
                 <div className="relative">
                   {/* Icon with enhanced styling */}
                   <div className={`inline-flex items-center justify-center w-20 h-20 lg:w-24 lg:h-24 rounded-2xl bg-gradient-to-br ${advantage.color} group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
-                    <Image 
+                    <R2Image 
                       src={advantage.icon} 
                       alt={advantage.title}
                       width={48}

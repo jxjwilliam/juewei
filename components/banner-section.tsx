@@ -1,4 +1,4 @@
-import Image from "next/image"
+import { R2Image } from "@/components/ui/r2-image"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Star, Shield, Truck } from "lucide-react"
@@ -27,14 +27,13 @@ export function BannerSection() {
           {/* Animated Banner */}
           <div className="relative w-full max-w-md lg:max-w-lg group">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500">
-              <Image
+              <R2Image
                 src="/banner-1.gif"
                 alt="绝味品牌动画"
                 width={400}
                 height={200}
                 className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
                 priority
-                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
@@ -44,7 +43,7 @@ export function BannerSection() {
           {/* Icon */}
           <div className="flex items-center justify-center group">
             <div className="relative">
-              <Image
+              <R2Image
                 src="/icon6-150x150.png"
                 alt="绝味品质保证"
                 width={150}

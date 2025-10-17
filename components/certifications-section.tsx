@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card"
-import Image from "next/image"
+import { R2Image } from "@/components/ui/r2-image"
 
 const certifications = [
   {
@@ -38,7 +38,7 @@ export function CertificationsSection() {
               className="group p-8 flex items-center justify-center bg-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 animate-scale-in hover-lift"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <Image 
+              <R2Image 
                 src={cert.image} 
                 alt={cert.alt} 
                 width={200}

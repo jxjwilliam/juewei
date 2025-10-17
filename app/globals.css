@@ -890,7 +890,7 @@
 
   /* Advanced responsive blur */
   .responsive-blur-0 {
-    @apply blur-0 sm:blur-sm lg:blur-0;
+    @apply blur-none sm:blur-sm lg:blur-none;
   }
 
   .responsive-blur-sm {
@@ -1058,7 +1058,7 @@
 
   /* Advanced responsive backdrop filters */
   .responsive-backdrop-blur-0 {
-    @apply backdrop-blur-0 sm:backdrop-blur-sm lg:backdrop-blur-0;
+    @apply backdrop-blur-none sm:backdrop-blur-sm lg:backdrop-blur-none;
   }
 
   .responsive-backdrop-blur-sm {

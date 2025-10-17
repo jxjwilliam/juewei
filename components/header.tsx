@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
+import { R2Image } from "@/components/ui/r2-image"
 import { useState } from "react"
 import { Menu, Phone, MapPin, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -47,7 +47,7 @@ export function Header() {
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/95 shadow-lg">
         <div className="container-wide flex h-20 lg:h-24 items-center justify-between">
           <Link href="/" className="flex items-center group">
-            <Image 
+            <R2Image 
               src="/juewei-logo2.webp" 
               alt="绝味 JUEWEI" 
               width={1007}
@@ -55,7 +55,6 @@ export function Header() {
               className="h-12 lg:h-16 w-auto group-hover:scale-105 transition-all duration-300"
               priority
               quality={95}
-              sizes="(max-width: 768px) 300px, (max-width: 1007px) 768px, 1007px"
             />
           </Link>
 

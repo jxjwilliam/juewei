@@ -10,6 +10,13 @@ export interface Product {
   category: string
   spicy: number
   popular: boolean
+  // R2 Image properties
+  r2Image?: {
+    path: string
+    url: string
+    version?: string
+    metadata?: Record<string, string>
+  }
   // Carousel-specific properties
   title?: string
   subtitle?: string
@@ -212,4 +219,59 @@ export const getProductsByCategory = (category: string) => {
 
 export const getCarouselSlides = () => {
   return products.filter(product => product.title && product.subtitle)
+}
+
+// R2 Image helper functions
+export const getProductImageUrl = (product: Product): string => {
+  // Use R2 image URL if available, fallback to local image
+  return product.r2Image?.url || product.image
+}
+
+export const getProductImagePath = (product: Product): string => {
+  // Use R2 image path if available, fallback to local image
+  return product.r2Image?.path || product.image
+}
+
+export const updateProductImage = (product: Product, r2Image: {
+  path: string
+  url: string
+  version?: string
+  metadata?: Record<string, string>
+}): Product => {
+  return {
+    ...product,
+    r2Image: {
+      path: r2Image.path,
+      url: r2Image.url,
+      version: r2Image.version,
+      metadata: r2Image.metadata
+    }
+  }
+}
+
+export const addProductWithR2Image = (productData: Omit<Product, 'id' | 'r2Image'>, r2Image: {
+  path: string
+  url: string
+  version?: string
+  metadata?: Record<string, string>
+}): Product => {
+  const newId = Math.max(...products.map(p => p.id)) + 1
+  return {
+    ...productData,
+    id: newId,
+    r2Image: {
+      path: r2Image.path,
+      url: r2Image.url,
+      version: r2Image.version,
+      metadata: r2Image.metadata
+    }
+  }
+}
+
+export const getProductsWithR2Images = () => {
+  return products.filter(product => product.r2Image)
+}
+
+export const getProductsWithoutR2Images = () => {
+  return products.filter(product => !product.r2Image)
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
+import { R2Image } from "@/components/ui/r2-image"
 import Link from "next/link"
 import { ArrowRight, Star, MapPin, Clock, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import { useState, useEffect } from "react"
@@ -53,7 +53,7 @@ export function ProductHeroCarousel() {
                 : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
-            <Image
+            <R2Image
               src={slide.image}
               alt={`${slide.title} 产品展示`}
               fill
@@ -66,7 +66,7 @@ export function ProductHeroCarousel() {
 
       {/* Floating Food Elements - Dynamic based on current slide */}
       <div className="absolute top-20 right-10 w-32 h-32 opacity-20 animate-bounce">
-        <Image 
+        <R2Image 
           src={productCarouselSlides[currentSlide].floatingImage || "/carousel2/product6.webp"} 
           alt={productCarouselSlides[currentSlide].floatingImageAlt || "产品展示"} 
           fill 
@@ -74,7 +74,7 @@ export function ProductHeroCarousel() {
         />
       </div>
       <div className="absolute bottom-20 left-10 w-24 h-24 opacity-15 animate-pulse">
-        <Image src="/carousel2/spicy-lobster6.webp" alt="麻辣龙虾" fill className="object-contain" />
+        <R2Image src="/carousel2/spicy-lobster6.webp" alt="麻辣龙虾" fill className="object-contain" />
       </div>
 
       {/* Hero Content - Dynamic based on current slide */}
@@ -174,7 +174,7 @@ export function ProductHeroCarousel() {
                   {/* Main Product Image */}
                   <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
                     <div className="w-full h-full bg-white rounded-2xl p-6 shadow-2xl">
-                      <Image
+                      <R2Image
                         src={productCarouselSlides[currentSlide].floatingImage || "/carousel2/product6.webp"}
                         alt={`${productCarouselSlides[currentSlide].title || productCarouselSlides[currentSlide].name}产品展示`}
                         fill
@@ -185,11 +185,11 @@ export function ProductHeroCarousel() {
                   
                   {/* Floating Product Cards */}
                   <div className="absolute -top-4 -right-4 w-20 h-20 bg-white rounded-xl shadow-lg p-2 animate-bounce-in">
-                    <Image src="/carousel2/product6.webp" alt="产品" fill className="object-contain" />
+                    <R2Image src="/carousel2/product6.webp" alt="产品" fill className="object-contain" />
                   </div>
                   
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white rounded-lg shadow-lg p-2 animate-bounce-in" style={{ animationDelay: '0.5s' }}>
-                    <Image src="/carousel2/branch2.webp" alt="产品展示" fill className="object-contain" />
+                    <R2Image src="/carousel2/branch2.webp" alt="产品展示" fill className="object-contain" />
                   </div>
                 </div>
               </div>

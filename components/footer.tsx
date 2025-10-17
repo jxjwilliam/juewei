@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import { R2Image } from "@/components/ui/r2-image"
 import { Badge } from "@/components/ui/badge"
 import { Instagram, MessageCircle, Phone, MapPin, Mail, Clock, Shield, Star } from "lucide-react"
 
@@ -159,7 +159,7 @@ export function Footer() {
                       className="group flex flex-col items-center gap-3 p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-all duration-300 border border-gray-200 hover:border-gray-300"
                     >
                       <div className="w-16 h-16 bg-white rounded-lg p-2 shadow-sm group-hover:shadow-md transition-shadow">
-                        <Image
+                        <R2Image
                           src={social.qrCode}
                           alt={`${social.name} QR Code`}
                           width={56}
