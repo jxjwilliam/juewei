@@ -19,12 +19,22 @@ export function getR2ImageUrl(path: string, options?: R2ImageOptions): string {
     throw new Error('NEXT_PUBLIC_R2_BASE_URL is not configured');
   }
   
+  // If path is already a full URL, return it as-is
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path;
+  }
+  
   // Remove leading slash if present
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  let cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  
+  // Remove /images/ prefix for R2 bucket (images were uploaded without this prefix)
+  if (cleanPath.startsWith('images/')) {
+    cleanPath = cleanPath.replace('images/', '');
+  }
   
   // Use local fallback if R2 unavailable
   if (options?.useLocal) {
-    return `/${cleanPath}`;
+    return `/${path.startsWith('/') ? path.slice(1) : path}`;
   }
   
   // Add cache busting version if provided
@@ -88,6 +98,11 @@ export async function checkR2Availability(): Promise<boolean> {
  * Get fallback URL for local image serving
  */
 export function getFallbackUrl(path: string): string {
+  // If path is already a full URL, return it as-is
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path;
+  }
+  
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
   return `/${cleanPath}`;
 }

@@ -1,4 +1,5 @@
 import { R2Image } from "@/components/ui/r2-image"
+import { getR2Url } from "@/lib/r2/get-r2-url"
 import { mobileSizes } from "@/lib/design-system/luxury-mobile-images"
 import { LuxuryButton } from "@/components/luxury/luxury-button"
 import { LuxuryHeading, LuxuryText } from "@/components/luxury/luxury-typography"
@@ -54,7 +55,7 @@ export function BannerSection() {
                 className="relative overflow-hidden rounded-luxury-lg shadow-luxury-xl group-hover:shadow-luxury-2xl transition-all duration-500 p-0"
               >
                 <R2Image
-                  src="/images/banners/banner-1.gif"
+                  src={getR2Url("banners/banner-1.gif")}
                   alt="绝味品牌动画"
                   width={400}
                   height={200}
@@ -75,7 +76,7 @@ export function BannerSection() {
                 className="relative p-8 rounded-full"
               >
                 <R2Image
-                  src="/images/products/icon6-150x150.png"
+                  src={getR2Url("products/icon6-150x150.png")}
                   alt="绝味品质保证"
                   width={150}
                   height={150}

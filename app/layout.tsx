@@ -8,7 +8,7 @@ import { LanguageProvider } from "@/lib/i18n/language-context"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { PerformanceMonitor } from "@/components/performance-monitor"
 import { sourceHanSans, sourceHanSerif, systemFont } from "@/lib/fonts"
-import { luxuryFonts } from "@/lib/fonts/luxury-fonts"
+import { getR2Url } from "@/lib/r2/get-r2-url"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://juewei.vercel.app'),
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "绝味 JUEWEI - Braised Snacks | 北美本地工厂",
     description: "绝味鸭脖 - 全球16,000+门店，北美本地供应链，CFIA/FDA/SQF认证，新鲜安全可靠",
-    images: ['/images/logos/logo.png'],
+    images: [getR2Url("logos/logo.png")],
   },
   twitter: {
     card: 'summary_large_image',
     title: "绝味 JUEWEI - Braised Snacks | 北美本地工厂",
     description: "绝味鸭脖 - 全球16,000+门店，北美本地供应链，CFIA/FDA/SQF认证，新鲜安全可靠",
-    images: ['/images/logos/logo.png'],
+    images: [getR2Url("logos/logo.png")],
   },
 }
 
@@ -46,27 +46,13 @@ export default function RootLayout({
     <html 
       lang="zh-CN" 
       data-scroll-behavior="smooth"
-      className="luxury-theme"
-      data-luxury-accessibility="enabled"
     >
       <head>
-        <meta name="theme-color" content="#1A1A1A" />
-        <meta name="color-scheme" content="dark" />
-        <style>{`
-          :root {
-            --luxury-bg-primary: #1A1A1A;
-            --luxury-bg-secondary: #2A2A2A;
-            --luxury-accent-copper: #B8860B;
-            --luxury-accent-gold: #D4AF37;
-            --luxury-spice: #D43D2A;
-            --luxury-text-primary: #F5F5F5;
-            --luxury-text-secondary: #CCCCCC;
-            --luxury-text-accent: #B8860B;
-          }
-        `}</style>
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="color-scheme" content="light" />
       </head>
       <body 
-        className={`${sourceHanSans.variable} ${sourceHanSerif.variable} ${systemFont.variable} ${luxuryFonts.heading.variable} ${luxuryFonts.body.variable} font-sans antialiased luxury-body bg-luxury-background-primary text-luxury-text-primary`}
+        className={`${sourceHanSans.variable} ${sourceHanSerif.variable} ${systemFont.variable} font-sans antialiased bg-background text-foreground`}
         suppressHydrationWarning={true}
       >
         <LanguageProvider>

@@ -1,12 +1,10 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ProductsHeroSection } from "@/components/products-hero-section"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Image from "next/image"
-import { mobileSizes } from "@/lib/design-system/luxury-mobile-images"
+import { R2Image } from "@/components/ui/r2-image"
 import Link from "next/link"
 import { Star, Phone, MapPin, Clock, Shield, Truck, Heart } from "lucide-react"
 import { products, getProductsByCategory } from "@/lib/data/products"
@@ -16,7 +14,49 @@ export default function ProductsPage() {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="relative">
-        <ProductsHeroSection />
+        {/* Simple Hero Section */}
+        <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden bg-gradient-to-br from-red-50 to-orange-50">
+          <div className="absolute inset-0">
+            <R2Image
+              src="/carousel/hero-01.webp"
+              alt="绝味产品展示"
+              fill
+              className="object-cover object-center"
+              priority={true}
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 via-orange-600/10 to-red-600/20"></div>
+          </div>
+          
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="container-wide">
+              <div className="max-w-4xl mx-auto text-center">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                  绝味精选产品
+                </h1>
+                <p className="text-xl lg:text-2xl text-white/90 mb-8 drop-shadow-md">
+                  传承经典工艺，精选优质食材
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700"
+                  >
+                    <Link href="#products">浏览产品</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="border-white text-white hover:bg-white hover:text-red-600"
+                  >
+                    <Link href="/contact">立即订购</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Product Categories */}
         <section className="py-20 bg-white">
@@ -43,12 +83,12 @@ export default function ProductsPage() {
                       <CardContent className="p-0">
                         {/* Product Image */}
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <Image
+                          <R2Image
                             src={product.image}
                             alt={product.name}
                             fill
                             className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate"
-                            sizes={mobileSizes('card')}
+                            sizes="(max-width: 640px) 92vw, 50vw"
                           />
                           {product.popular && (
                             <Badge className="absolute top-4 left-4 bg-red-600 text-white">
@@ -115,7 +155,7 @@ export default function ProductsPage() {
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 overflow-hidden">
                       <CardContent className="p-0">
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes={mobileSizes('card')} />
+                          <R2Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes="(max-width: 640px) 92vw, 50vw" />
                           {product.popular && <Badge className="absolute top-4 left-4 bg-red-600 text-white">热门推荐</Badge>}
                         </div>
                         <div className="p-6 space-y-4">
@@ -142,7 +182,7 @@ export default function ProductsPage() {
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 overflow-hidden">
                       <CardContent className="p-0">
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes={mobileSizes('card')} />
+                          <R2Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes="(max-width: 640px) 92vw, 50vw" />
                           {product.popular && <Badge className="absolute top-4 left-4 bg-red-600 text-white">热门推荐</Badge>}
                         </div>
                         <div className="p-6 space-y-4">
@@ -169,7 +209,7 @@ export default function ProductsPage() {
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 overflow-hidden">
                       <CardContent className="p-0">
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes={mobileSizes('card')} />
+                          <R2Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes="(max-width: 640px) 92vw, 50vw" />
                           {product.popular && <Badge className="absolute top-4 left-4 bg-red-600 text-white">热门推荐</Badge>}
                         </div>
                         <div className="p-6 space-y-4">

@@ -1,6 +1,7 @@
 "use client"
 
 import { R2Image } from "@/components/ui/r2-image"
+import { getR2Url } from "@/lib/r2/get-r2-url"
 import { mobileSizes } from "@/lib/design-system/luxury-mobile-images"
 import { LuxuryButton } from "@/components/luxury/luxury-button"
 import { LuxuryHeading, LuxuryText } from "@/components/luxury/luxury-typography"
@@ -23,7 +24,7 @@ export function ProductsHeroSection() {
       {/* Hero Image */}
       <div className="absolute inset-0">
         <R2Image
-          src="/images/carousel/hero-01.webp"
+          src={getR2Url("carousel/hero-01.webp")}
           alt="绝味产品展示 - 精选美食系列"
           fill
           className="object-cover object-center"
@@ -142,7 +143,7 @@ export function ProductsHeroSection() {
                     <LuxuryCard variant="glass" className="absolute inset-0 p-8">
                       <LuxuryCard variant="elevated" className="w-full h-full p-6">
                         <R2Image
-                          src="/images/carousel/product6.webp"
+                          src={getR2Url("carousel/product6.webp")}
                           alt="绝味产品展示"
                           fill
                           className="object-contain"

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { R2Image } from "@/components/ui/r2-image"
+import { getR2Url } from "@/lib/r2/get-r2-url"
 import { Phone, MapPin } from "lucide-react"
 import { LuxuryButton } from "@/components/luxury/luxury-button"
 import { LuxuryText } from "@/components/luxury/luxury-typography"
@@ -70,7 +71,7 @@ export function Header() {
             <LuxuryAnimation animation="slideRight" delay={0.2}>
               <Link href="/" className="flex items-center group">
                 <R2Image 
-                  src="/images/logos/juewei-logo2.webp" 
+                  src={getR2Url("logos/juewei-logo2.webp")} 
                   alt="绝味 JUEWEI" 
                   width={1007}
                   height={320}

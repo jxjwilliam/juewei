@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { R2Image } from "@/components/ui/r2-image"
+import { getR2Url } from "@/lib/r2/get-r2-url"
 import { mobileSizes, mobilePriority } from "@/lib/design-system/luxury-mobile-images"
 import { LuxuryButton } from "@/components/luxury/luxury-button"
 import { LuxuryHeading, LuxuryText } from "@/components/luxury/luxury-typography"
@@ -86,7 +87,7 @@ export function ProductHeroCarousel() {
         <div className="absolute top-20 right-10 w-32 h-32 opacity-30 luxury-animate-bounce">
           <LuxuryCard variant="glass" className="p-4">
             <R2Image 
-              src={productCarouselSlides[currentSlide].floatingImage || "/images/carousel/product6.webp"} 
+              src={productCarouselSlides[currentSlide].floatingImage || getR2Url("carousel/product6.webp")} 
               alt={productCarouselSlides[currentSlide].floatingImageAlt || "产品展示"} 
               fill 
               className="object-contain" 
@@ -99,7 +100,7 @@ export function ProductHeroCarousel() {
       <LuxuryAnimation animation="slideUp" delay={0.4}>
         <div className="absolute bottom-20 left-10 w-24 h-24 opacity-25 luxury-animate-pulse">
           <LuxuryCard variant="glass" className="p-3">
-            <R2Image src="/images/carousel/spicy-lobster6.webp" alt="麻辣龙虾" fill className="object-contain" sizes={mobileSizes('thumb')} />
+            <R2Image src={getR2Url("carousel/spicy-lobster6.webp")} alt="麻辣龙虾" fill className="object-contain" sizes={mobileSizes('thumb')} />
           </LuxuryCard>
         </div>
       </LuxuryAnimation>
@@ -232,7 +233,7 @@ export function ProductHeroCarousel() {
                     <LuxuryCard variant="glass" className="absolute inset-0 p-8">
                       <LuxuryCard variant="elevated" className="w-full h-full p-6">
                         <R2Image
-                          src={productCarouselSlides[currentSlide].floatingImage || "/images/carousel/product6.webp"}
+                          src={productCarouselSlides[currentSlide].floatingImage || getR2Url("carousel/product6.webp")}
                           alt={`${productCarouselSlides[currentSlide].title || productCarouselSlides[currentSlide].name}产品展示`}
                           fill
                           className="object-contain"
@@ -243,13 +244,13 @@ export function ProductHeroCarousel() {
                     {/* Luxury Floating Product Cards */}
                     <LuxuryAnimation animation="bounce" delay={1.0}>
                       <LuxuryCard variant="glass" className="absolute -top-4 -right-4 w-20 h-20 p-2 luxury-animate-bounce">
-                        <R2Image src="/images/carousel/product6.webp" alt="产品" fill className="object-contain" />
+                        <R2Image src={getR2Url("carousel/product6.webp")} alt="产品" fill className="object-contain" />
                       </LuxuryCard>
                     </LuxuryAnimation>
                     
                     <LuxuryAnimation animation="bounce" delay={1.2}>
                       <LuxuryCard variant="glass" className="absolute -bottom-4 -left-4 w-16 h-16 p-2 luxury-animate-bounce" style={{ animationDelay: '0.5s' }}>
-                        <R2Image src="/images/carousel/branch2.webp" alt="产品展示" fill className="object-contain" />
+                        <R2Image src={getR2Url("carousel/branch2.webp")} alt="产品展示" fill className="object-contain" />
                       </LuxuryCard>
                     </LuxuryAnimation>
                   </div>

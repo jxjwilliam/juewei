@@ -2,12 +2,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { R2Image } from "@/components/ui/r2-image"
+import { getR2Url } from "@/lib/r2/get-r2-url"
 import Link from "next/link"
 import { Shield, Globe, Truck, Star, ArrowRight, CheckCircle } from "lucide-react"
 
 const advantages = [
   {
-    icon: "/images/products/icon4.png",
+    icon: getR2Url("products/icon4.png"),
     title: "本地工厂",
     subtitle: "CFIA / FDA / SQF 认证",
     description: "北美本地生产，严格质量把控，确保每一份产品都符合最高食品安全标准",
@@ -17,7 +18,7 @@ const advantages = [
     borderColor: "border-red-200"
   },
   {
-    icon: "/images/products/icon14.png",
+    icon: getR2Url("products/icon14.png"),
     title: "全球 16,000+ 门店",
     subtitle: "遍布全球的品牌影响力",
     description: "从中国到北美，我们的品牌足迹遍布全球，为世界各地的消费者带来正宗麻辣美味",
@@ -27,7 +28,7 @@ const advantages = [
     borderColor: "border-blue-200"
   },
   {
-    icon: "/images/products/icon13.png",
+    icon: getR2Url("products/icon13.png"),
     title: "北美本地供应链",
     subtitle: "快速配送，保证新鲜",
     description: "完善的本地供应链网络，确保产品从生产到餐桌的新鲜度，让您享受最佳口感",
@@ -37,7 +38,7 @@ const advantages = [
     borderColor: "border-green-200"
   },
   {
-    icon: "/images/products/icon12.png",
+    icon: getR2Url("products/icon12.png"),
     title: "新鲜安全可靠",
     subtitle: "严格的食品安全标准",
     description: "从原料选择到生产工艺，每一个环节都经过严格把控，为您提供安全可靠的美味体验",

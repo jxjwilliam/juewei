@@ -1,20 +1,21 @@
 import { Card } from "@/components/ui/card"
 import { R2Image } from "@/components/ui/r2-image"
+import { getR2Url } from "@/lib/r2/get-r2-url"
 
 const certifications = [
   {
     name: "CFIA",
-    image: "/images/certifications/cfia.jpg",
+    image: getR2Url("certifications/cfia.jpg"),
     alt: "CFIA认证",
   },
   {
     name: "FDA",
-    image: "/images/certifications/fda.jpg",
+    image: getR2Url("certifications/fda.jpg"),
     alt: "FDA认证",
   },
   {
     name: "SQF",
-    image: "/images/certifications/sqf.jpg",
+    image: getR2Url("certifications/sqf.jpg"),
     alt: "SQF认证",
   },
 ]

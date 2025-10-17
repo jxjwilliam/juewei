@@ -6,6 +6,7 @@ import { LuxuryButton } from "@/components/luxury/luxury-button"
 import { LuxuryHeading, LuxuryText } from "@/components/luxury/luxury-typography"
 import { LuxuryAnimation } from "@/components/luxury/luxury-animations"
 import { LuxuryCard } from "@/components/luxury/luxury-card"
+import { getR2Url } from "@/lib/r2/get-r2-url"
 import Link from "next/link"
 import { ArrowRight, Star, MapPin, Clock, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import { useState, useEffect } from "react"
@@ -13,7 +14,7 @@ import { useState, useEffect } from "react"
 const carouselSlides = [
   {
     id: 1,
-    image: "/images/carousel/duck-kidney-7.webp",
+    image: getR2Url("carousel/duck-kidney-7.webp"),
     title: "麻辣鸭脖",
     subtitle: "Spicy Duck Neck",
     description: "传统工艺制作",
@@ -22,13 +23,13 @@ const carouselSlides = [
     ctaLink: "/contact",
     ctaSecondary: "了解更多",
     ctaSecondaryLink: "/products",
-    floatingImage: "/images/carousel/product6.webp",
+    floatingImage: getR2Url("carousel/product6.webp"),
     floatingImageAlt: "产品展示",
     badge: "CFIA认证"
   },
   {
     id: 2,
-    image: "/images/carousel/spicy-lobster6.webp",
+    image: getR2Url("carousel/spicy-lobster6.webp"),
     title: "麻辣龙虾",
     subtitle: "Spicy Lobster",
     description: "精选优质龙虾",
@@ -37,13 +38,13 @@ const carouselSlides = [
     ctaLink: "/products",
     ctaSecondary: "联系我们",
     ctaSecondaryLink: "/contact",
-    floatingImage: "/images/carousel/branch2.webp",
+    floatingImage: getR2Url("carousel/branch2.webp"),
     floatingImageAlt: "产品展示",
     badge: "CFIA认证"
   },
   {
     id: 3,
-    image: "/images/carousel/hero-01.webp",
+    image: getR2Url("carousel/hero-01.webp"),
     title: "绝味",
     subtitle: "JUEWEI",
     description: "麻辣鲜香 · 唇齿留香",
@@ -52,13 +53,13 @@ const carouselSlides = [
     ctaLink: "/products",
     ctaSecondary: "成为合作伙伴",
     ctaSecondaryLink: "/partnership",
-    floatingImage: "/images/carousel/spicy-shrimp-balls.webp",
+    floatingImage: getR2Url("carousel/spicy-shrimp-balls.webp"),
     floatingImageAlt: "麻辣虾球",
     badge: "全球 16,000+ 门店"
   },
   {
     id: 4,
-    image: "/images/carousel/spicy-shrimp-balls.webp",
+    image: getR2Url("carousel/spicy-shrimp-balls.webp"),
     title: "麻辣虾球",
     subtitle: "Spicy Shrimp Balls",
     description: "精选湖北潜江小龙虾尾",
@@ -67,7 +68,7 @@ const carouselSlides = [
     ctaLink: "/contact",
     ctaSecondary: "了解更多",
     ctaSecondaryLink: "/products",
-    floatingImage: "/images/carousel/duck-kidney-7.webp",
+    floatingImage: getR2Url("carousel/duck-kidney-7.webp"),
     floatingImageAlt: "麻辣鸭脖",
     badge: "热门推荐"
   }
@@ -150,7 +151,7 @@ export function HeroCarousel() {
       <LuxuryAnimation animation="slideUp" delay={0.4}>
         <div className="absolute bottom-20 left-10 w-24 h-24 opacity-25 luxury-animate-pulse">
           <LuxuryCard variant="glass" className="p-3">
-            <R2Image src="/images/carousel/spicy-lobster6.webp" alt="麻辣龙虾" fill className="object-contain" />
+            <R2Image src={getR2Url("carousel/spicy-lobster6.webp")} alt="麻辣龙虾" fill className="object-contain" />
           </LuxuryCard>
         </div>
       </LuxuryAnimation>
@@ -271,13 +272,13 @@ export function HeroCarousel() {
                     {/* Luxury Floating Product Cards */}
                     <LuxuryAnimation animation="bounce" delay={1.0}>
                       <LuxuryCard variant="glass" className="absolute -top-4 -right-4 w-20 h-20 p-2 luxury-animate-bounce">
-                        <R2Image src="/images/carousel/product6.webp" alt="产品" fill className="object-contain" />
+                         <R2Image src={getR2Url("carousel/product6.webp")} alt="产品" fill className="object-contain" />
                       </LuxuryCard>
                     </LuxuryAnimation>
                     
                     <LuxuryAnimation animation="bounce" delay={1.2}>
                       <LuxuryCard variant="glass" className="absolute -bottom-4 -left-4 w-16 h-16 p-2 luxury-animate-bounce" style={{ animationDelay: '0.5s' }}>
-                        <R2Image src="/images/carousel/branch2.webp" alt="产品展示" fill className="object-contain" />
+                         <R2Image src={getR2Url("carousel/branch2.webp")} alt="产品展示" fill className="object-contain" />
                       </LuxuryCard>
                     </LuxuryAnimation>
                   </div>

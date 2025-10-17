@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { R2Image } from "@/components/ui/r2-image"
+import { getR2Url } from "@/lib/r2/get-r2-url"
 import { Badge } from "@/components/ui/badge"
 import { Instagram, MessageCircle, Phone, MapPin, Mail, Clock, Shield, Star } from "lucide-react"
 
@@ -43,28 +44,28 @@ const footerLinks = {
       handle: "juewei_canada",
       icon: Instagram,
       href: "https://instagram.com/juewei_canada",
-      qrCode: "/images/social/juewei_canada_qr.png",
+      qrCode: getR2Url("social/juewei_canada_qr.png"),
     },
     {
       name: "小红书",
       handle: "绝味鸭脖加拿大",
       icon: XiaohongshuIcon,
       href: "https://www.xiaohongshu.com/user/profile/绝味鸭脖加拿大",
-      qrCode: "/images/social/xiaohongshu.jpg",
+      qrCode: getR2Url("social/xiaohongshu.jpg"),
     },
     {
       name: "TikTok",
       handle: "jueweicanada",
       icon: TikTokIcon,
       href: "https://tiktok.com/@jueweicanada",
-      qrCode: "/images/social/tiktok.png",
+      qrCode: getR2Url("social/tiktok.png"),
     },
     {
       name: "WeChat",
       handle: "JueweiyaboCanada",
       icon: WeChatIcon,
       href: "https://weixin.qq.com/r/",
-      qrCode: "/images/social/wechat.jpg",
+      qrCode: getR2Url("social/wechat.jpg"),
     },
   ],
 }
