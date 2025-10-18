@@ -51,7 +51,7 @@ const advantages = [
 
 export function BrandAdvantages() {
   return (
-    <section className="section-padding bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-32 h-32 bg-primary rounded-full animate-pulse"></div>
@@ -60,21 +60,21 @@ export function BrandAdvantages() {
       </div>
 
       <div className="container-wide relative z-10">
-        <div className="text-center mb-16 lg:mb-20">
+        <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Star className="w-4 h-4 fill-current" />
             品牌优势
           </div>
           
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-gradient animate-fade-in text-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 animate-fade-in text-balance">
             品牌核心优势
           </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground animate-slide-up text-pretty">
+          <p className="text-base lg:text-lg text-muted-foreground animate-slide-up text-pretty">
             绝味鸭脖凭借多年的品牌积淀和严格的质量标准，为全球消费者提供安全、新鲜、美味的麻辣食品
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {advantages.map((advantage, index) => (
             <Card
               key={index}
@@ -138,7 +138,7 @@ export function BrandAdvantages() {
                 <span className="text-primary font-semibold">品质保证</span>
               </div>
               
-              <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              <h3 className="text-3xl lg:text-4xl font-bold mb-4">
                 为什么选择绝味？
               </h3>
               

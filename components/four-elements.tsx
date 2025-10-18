@@ -25,13 +25,13 @@ const elements = [
 
 export function FourElements() {
   return (
-    <section className="section-padding bg-gradient-to-b from-secondary/20 via-background to-muted/10">
+    <section className="py-16 bg-gradient-to-b from-secondary/20 via-background to-muted/10">
       <div className="container-wide">
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-gradient animate-fade-in text-balance">
-            绝味的味蕾 <span className="text-gradient-warm">4</span> 重奏
+        <div className="text-center mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 animate-fade-in text-balance">
+            绝味的味蕾 <span>4</span> 重奏
           </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground animate-slide-up text-pretty">
+          <p className="text-base lg:text-lg text-muted-foreground animate-slide-up text-pretty">
             四大核心元素，成就独特风味
           </p>
         </div>
@@ -42,17 +42,17 @@ export function FourElements() {
               className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-white/80 backdrop-blur-sm border-2 hover:border-primary/50 animate-scale-in hover-lift"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <CardContent className="p-6 lg:p-8 text-center space-y-6 relative">
+              <CardContent className="p-4 lg:p-6 text-center space-y-4 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <div className="inline-flex items-center justify-center w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-primary to-accent text-primary-foreground text-3xl lg:text-4xl font-black shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <div className="inline-flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-gradient-to-br from-primary to-accent text-primary-foreground text-2xl lg:text-3xl font-black shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     {element.number}
                   </div>
-                  <div className="mt-6">
-                    <h3 className="text-lg lg:text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300 text-balance">
+                  <div className="mt-4">
+                    <h3 className="text-base lg:text-lg font-bold mb-2 group-hover:text-primary transition-colors duration-300 text-balance">
                       {element.title}
                     </h3>
-                    <p className="text-sm lg:text-base text-muted-foreground leading-relaxed text-pretty">
+                    <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed text-pretty">
                       {element.description}
                     </p>
                   </div>

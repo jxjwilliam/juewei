@@ -181,7 +181,7 @@ export function HeroCarousel() {
                       variant="display"
                       className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight text-balance drop-shadow-2xl"
                     >
-                      <span className="luxury-text-gradient">{carouselSlides[currentSlide].title}</span>
+                      <span className="text-luxury-text-primary">{carouselSlides[currentSlide].title}</span>
                       <br />
                       <span className="text-luxury-text-primary">{carouselSlides[currentSlide].subtitle}</span>
                     </LuxuryHeading>
