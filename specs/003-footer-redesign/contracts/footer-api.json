@@ -1,0 +1,266 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Footer Component API",
+    "description": "API contract for footer component data and interactions",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://juewei-ui.vercel.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/footer/content": {
+      "get": {
+        "summary": "Get footer content",
+        "description": "Retrieve all footer content including contact info, navigation, and social media",
+        "responses": {
+          "200": {
+            "description": "Footer content retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FooterContent"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/footer/contact": {
+      "get": {
+        "summary": "Get contact information",
+        "description": "Retrieve contact information for the footer",
+        "responses": {
+          "200": {
+            "description": "Contact information retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactInformation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/footer/social": {
+      "get": {
+        "summary": "Get social media links",
+        "description": "Retrieve social media platform information and QR codes",
+        "responses": {
+          "200": {
+            "description": "Social media links retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocialMediaLink"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FooterContent": {
+        "type": "object",
+        "required": ["contactInfo", "navigation", "businessHours", "socialMedia", "trustBadges", "copyright"],
+        "properties": {
+          "contactInfo": {
+            "$ref": "#/components/schemas/ContactInformation"
+          },
+          "navigation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NavigationLink"
+            }
+          },
+          "businessHours": {
+            "$ref": "#/components/schemas/BusinessHours"
+          },
+          "socialMedia": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SocialMediaLink"
+            }
+          },
+          "trustBadges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TrustBadge"
+            }
+          },
+          "copyright": {
+            "type": "string",
+            "example": "© 2025 绝味 JUEWEI all right reserved."
+          }
+        }
+      },
+      "ContactInformation": {
+        "type": "object",
+        "required": ["phone", "address", "email", "hours", "support"],
+        "properties": {
+          "phone": {
+            "type": "string",
+            "pattern": "^\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}$",
+            "example": "(604) 521-7618"
+          },
+          "address": {
+            "type": "string",
+            "example": "1531 Derwent Way, Delta, BC V3M6K8"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "jueweifoodca@gmail.com"
+          },
+          "hours": {
+            "type": "string",
+            "example": "Mon-Sun: 9AM-9PM"
+          },
+          "support": {
+            "type": "string",
+            "example": "24/7 在线支持"
+          }
+        }
+      },
+      "NavigationLink": {
+        "type": "object",
+        "required": ["name", "href", "label", "order"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "首页"
+          },
+          "href": {
+            "type": "string",
+            "example": "/"
+          },
+          "label": {
+            "type": "string",
+            "example": "Navigate to home page"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 1
+          }
+        }
+      },
+      "BusinessHours": {
+        "type": "object",
+        "required": ["serviceHours", "supportHours", "timezone"],
+        "properties": {
+          "serviceHours": {
+            "type": "string",
+            "example": "周一至周日: 9:00 AM - 9:00 PM"
+          },
+          "supportHours": {
+            "type": "string",
+            "example": "24/7 客服支持"
+          },
+          "timezone": {
+            "type": "string",
+            "example": "PST"
+          }
+        }
+      },
+      "SocialMediaLink": {
+        "type": "object",
+        "required": ["name", "handle", "href", "qrCode", "icon", "order"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": ["Instagram", "小红书", "TikTok", "WeChat"],
+            "example": "Instagram"
+          },
+          "handle": {
+            "type": "string",
+            "example": "juewei_canada"
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://instagram.com/juewei_canada"
+          },
+          "qrCode": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://r2.example.com/social/juewei_canada_qr.png"
+          },
+          "icon": {
+            "type": "string",
+            "example": "Instagram"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 1
+          }
+        }
+      },
+      "TrustBadge": {
+        "type": "object",
+        "required": ["text", "icon", "variant", "order"],
+        "properties": {
+          "text": {
+            "type": "string",
+            "example": "CFIA认证"
+          },
+          "icon": {
+            "type": "string",
+            "example": "Shield"
+          },
+          "variant": {
+            "type": "string",
+            "enum": ["default", "secondary", "outline"],
+            "example": "default"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 1
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": ["message", "code"],
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Failed to load footer content"
+          },
+          "code": {
+            "type": "string",
+            "example": "FOOTER_LOAD_ERROR"
+          },
+          "details": {
+            "type": "string",
+            "example": "Unable to fetch social media QR codes"
+          }
+        }
+      }
+    }
+  }
+}

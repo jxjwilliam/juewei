@@ -8,13 +8,23 @@ export default function ContactPage() {
     <div className="min-h-screen">
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-red-600 to-red-700 text-white py-20 overflow-hidden">
-          <div className="container mx-auto px-4">
+        {/* Hero Section with Fire Background */}
+        <section className="relative min-h-[400px] flex items-center justify-center text-white overflow-hidden" style={{
+          backgroundImage: 'url("https://darkseagreen-lobster-522120.hostingersite.com/wp-content/uploads/2025/10/fire.webp")',
+          backgroundPosition: 'bottom center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundColor: '#E7211B'
+        }}>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-red-600/80"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-                  <h1 className="text-5xl md:text-6xl font-semibold transition-all duration-300 hover:text-primary hover:scale-105 cursor-default">联系我们</h1>
+              <h1 className="text-5xl md:text-6xl font-semibold transition-all duration-300 hover:text-white hover:scale-105 cursor-default">联系我们</h1>
             </div>
           </div>
+          
           {/* Decorative wave */}
           <div className="absolute bottom-0 left-0 right-0">
             <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
@@ -26,16 +36,24 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Contact Info and Map Section */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
+        {/* Contact Info and Map Section with Fire Background */}
+        <section className="py-16 relative" style={{
+          backgroundImage: 'url("https://darkseagreen-lobster-522120.hostingersite.com/wp-content/uploads/2025/09/fire-red-1.png")',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain'
+        }}>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-white/95"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-7xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-6 items-stretch">
+              <div className="grid lg:grid-cols-2 gap-8 items-start">
                 {/* Contact Information - Left side with larger fonts */}
                 <div className="flex flex-col">
-                  <h2 className="text-4xl font-semibold mb-8 text-foreground transition-all duration-300 hover:text-primary hover:scale-105 cursor-default">联系我们</h2>
+                  <h2 className="text-4xl font-semibold mb-4 text-foreground transition-all duration-300 hover:text-primary hover:scale-105 cursor-default">联系我们</h2>
 
-                  <div className="space-y-6">
+                  <div className="space-y-3">
                     {/* Address */}
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
@@ -72,9 +90,9 @@ export default function ContactPage() {
                   </div>
 
                   {/* Social Media */}
-                  <div className="mt-10">
-                    <h3 className="text-2xl font-semibold mb-6 text-foreground transition-all duration-300 hover:text-primary hover:scale-105 cursor-default">社交媒体</h3>
-                    <div className="space-y-5">
+                  <div className="mt-6">
+                    <h3 className="text-2xl font-semibold mb-3 text-foreground transition-all duration-300 hover:text-primary hover:scale-105 cursor-default">社交媒体</h3>
+                    <div className="space-y-2">
                       <div className="flex items-center gap-3">
                         <div className="w-6 h-6 flex items-center justify-center">
                           <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 100 100.02" className="w-6 h-6">
@@ -118,23 +136,48 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Map - Right side, larger and wider */}
+                {/* Map - Right side, larger to align with left content */}
                 <div className="lg:col-span-1">
-                  <Card className="border-2 overflow-hidden shadow-lg h-full">
-                    <div className="h-full bg-muted relative">
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+                    <div className="h-[600px] relative">
                       <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2606.8!2d-122.9!3d49.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDA2JzAwLjAiTiAxMjLCsDU0JzAwLjAiVw!5e0!3m2!1sen!2sca!4v1234567890"
                         width="100%"
-                        height="100%"
+                        height="600"
                         style={{ border: 0 }}
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                        className="absolute inset-0"
+                        className="w-full h-full"
                       ></iframe>
                     </div>
-                  </Card>
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Partnership CTA Section */}
+        <section className="py-16 bg-red-600 text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex flex-col items-center gap-6">
+                <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 576 512">
+                    <path d="M576 240c0-23.63-12.95-44.04-32-55.12V32.01C544 23.26 537.02 0 512 0c-7.12 0-14.19 2.38-19.98 7.02l-85.03 68.03C364.28 109.19 310.66 128 256 128H64c-35.35 0-64 28.65-64 64v96c0 35.35 28.65 64 64 64h33.7c-1.39 10.48-2.18 21.14-2.18 32 0 39.77 9.26 77.35 25.56 110.94 5.19 10.69 16.52 17.06 28.4 17.06h74.28c26.05 0 41.69-29.84 25.9-50.56-16.4-21.52-26.15-48.36-26.15-77.44 0-11.11 1.62-21.79 4.41-32H256c54.66 0 108.28 18.81 150.98 52.95l85.03 68.03a32.023 32.023 0 0 0 19.98 7.02c24.92 0 32-22.78 32-32V295.13C563.05 284.04 576 263.63 576 240zm-96 141.42l-33.05-26.44C392.95 311.78 325.12 288 256 288v-96c69.12 0 136.95-23.78 190.95-66.98L480 98.58v282.84z"/>
+                  </svg>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold">想合作经销？成为我们的合作伙伴</h2>
+                <a 
+                  href="mailto:jueweifoodca@gmail.com" 
+                  className="inline-flex items-center gap-3 bg-white text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 576 512">
+                    <path d="M576 240c0-23.63-12.95-44.04-32-55.12V32.01C544 23.26 537.02 0 512 0c-7.12 0-14.19 2.38-19.98 7.02l-85.03 68.03C364.28 109.19 310.66 128 256 128H64c-35.35 0-64 28.65-64 64v96c0 35.35 28.65 64 64 64h33.7c-1.39 10.48-2.18 21.14-2.18 32 0 39.77 9.26 77.35 25.56 110.94 5.19 10.69 16.52 17.06 28.4 17.06h74.28c26.05 0 41.69-29.84 25.9-50.56-16.4-21.52-26.15-48.36-26.15-77.44 0-11.11 1.62-21.79 4.41-32H256c54.66 0 108.28 18.81 150.98 52.95l85.03 68.03a32.023 32.023 0 0 0 19.98 7.02c24.92 0 32-22.78 32-32V295.13C563.05 284.04 576 263.63 576 240zm-96 141.42l-33.05-26.44C392.95 311.78 325.12 288 256 288v-96c69.12 0 136.95-23.78 190.95-66.98L480 98.58v282.84z"/>
+                  </svg>
+                  联系我们
+                </a>
               </div>
             </div>
           </div>

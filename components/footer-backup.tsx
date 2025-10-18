@@ -1,5 +1,3 @@
-'use client'
-
 import Link from "next/link"
 import { R2Image } from "@/components/ui/r2-image"
 import { getR2Url } from "@/lib/r2/get-r2-url"
@@ -74,71 +72,76 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800" role="contentinfo" aria-label="Website footer" lang="zh-CN">
-      {/* Modern Footer Design */}
-      <div className="text-gray-800 py-4 lg:py-6">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
-            {/* Section Separator */}
-            <div className="col-span-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-4"></div>
+    <footer className="bg-[#fcefea]">
+      {/* Single Row Footer */}
+      <div className="text-gray-800 py-16">
+        <div className="container-wide">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Contact Info */}
-            <div className="space-y-4 bg-white/50 rounded-xl p-4">
+            <div className="space-y-6">
               <div>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-black mb-2 text-gray-900 font-luxury-heading">联系我们</h2>
-                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">专业团队随时为您服务</p>
+                <h2 className="text-2xl lg:text-3xl font-black mb-3">联系我们</h2>
+                <p className="text-lg text-gray-600">专业团队随时为您服务</p>
               </div>
               
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 p-2 bg-white/50 rounded-lg hover:bg-white/70 hover:shadow-lg hover:scale-105 transition-all duration-300 min-h-[44px]">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-blue-600" />
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-gray-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">(604) 521-7618</div>
+                    <div className="font-semibold">(604) 521-7618</div>
                     <div className="text-gray-600 text-sm">Mon-Sun: 9AM-9PM</div>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3 p-2 bg-white/50 rounded-lg hover:bg-white/70 hover:shadow-lg hover:scale-105 transition-all duration-300 min-h-[44px]">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-blue-600" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-gray-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">1531 Derwent Way</div>
+                    <div className="font-semibold">1531 Derwent Way</div>
                     <div className="text-gray-600 text-sm">Delta, BC V3M6K8</div>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3 p-2 bg-white/50 rounded-lg hover:bg-white/70 hover:shadow-lg hover:scale-105 transition-all duration-300 min-h-[44px]">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-blue-600" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-gray-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">jueweifoodca@gmail.com</div>
+                    <div className="font-semibold">jueweifoodca@gmail.com</div>
                     <div className="text-gray-600 text-sm">24/7 在线支持</div>
                   </div>
                 </div>
               </div>
 
+              {/* Trust Badges */}
+              <div className="flex flex-wrap gap-2">
+                <Badge className="bg-gray-100 text-gray-700 border-gray-300 px-3 py-1 text-xs">
+                  <Shield className="w-3 h-3 mr-1" />
+                  CFIA认证
+                </Badge>
+                <Badge className="bg-gray-100 text-gray-700 border-gray-300 px-3 py-1 text-xs">
+                  <Star className="w-3 h-3 mr-1" />
+                  本地工厂
+                </Badge>
+                <Badge className="bg-gray-100 text-gray-700 border-gray-300 px-3 py-1 text-xs">
+                  <Clock className="w-3 h-3 mr-1" />
+                  新鲜配送
+                </Badge>
+              </div>
             </div>
 
             {/* Quick Navigation */}
-            <div className="space-y-3 pl-4 bg-white/50 rounded-xl p-4 ">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">快速导航</h3>
-              <nav className="space-y-2" role="navigation" aria-label="Footer navigation">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold">快速导航</h3>
+              <nav className="space-y-2">
                 {footerLinks.navigation.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="block text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all duration-300 py-2 px-2 rounded-lg hover:bg-blue-50 min-h-[44px] flex items-center"
-                    onClick={() => {
-                      if (typeof window !== 'undefined' && window.gtag) {
-                        window.gtag('event', 'footer_navigation_click', {
-                          link_name: link.name,
-                          link_href: link.href
-                        })
-                      }
-                    }}
+                    className="block text-gray-600 hover:text-gray-800 transition-colors duration-300 py-1"
                   >
                     {link.name}
                   </Link>
@@ -147,53 +150,51 @@ export function Footer() {
             </div>
 
             {/* Business Hours */}
-            <div className="space-y-3 pl-4 bg-white/50 rounded-xl p-4 ">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">营业时间</h3>
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold">营业时间</h3>
               <div className="space-y-3 text-gray-600">
-                <div className="flex items-center gap-3 p-2 bg-white/50 rounded-lg">
-                  <Clock className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <div className="flex items-center gap-3">
+                  <Clock className="w-5 h-5 text-gray-800 flex-shrink-0" />
                   <div>
-                    <div className="font-semibold text-gray-900">服务时间</div>
-                    <div className="text-sm text-gray-600">周一至周日: 9:00 AM - 9:00 PM</div>
+                    <div className="font-semibold text-gray-800">服务时间</div>
+                    <div className="text-sm">周一至周日: 9:00 AM - 9:00 PM</div>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3 p-2 bg-white/50 rounded-lg">
-                  <Shield className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <div className="flex items-center gap-3">
+                  <Shield className="w-5 h-5 text-gray-800 flex-shrink-0" />
                   <div>
-                    <div className="font-semibold text-gray-900">在线支持</div>
-                    <div className="text-sm text-gray-600">24/7 客服支持</div>
+                    <div className="font-semibold text-gray-800">在线支持</div>
+                    <div className="text-sm">24/7 客服支持</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Social Media */}
-            <div className="pl-4 bg-white/50 rounded-xl p-4">
-              <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold">社交媒体</h3>
+              <div className="space-y-5">
                 {footerLinks.social.map((social) => {
                   const Icon = social.icon
                   return (
-                    <div key={social.name} className="flex flex-col items-center p-2 bg-white/50 rounded-lg hover:bg-white/70 transition-all duration-200">
-                      <div className="w-20 h-20 mb-2 rounded-lg overflow-hidden border-2 border-gray-200">
+                    <div key={social.name} className="flex items-center gap-3">
+                      <div className="w-[83px] h-auto flex-shrink-0">
                         <R2Image
                           src={social.qrCode}
                           alt={`${social.name} QR Code`}
-                          width={80}
-                          height={80}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          priority={false}
-                          fallback={<div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs">QR Code</div>}
+                          width={83}
+                          height={83}
+                          className="w-full h-auto"
                         />
                       </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 flex items-center justify-center">
-                          <Icon className="w-4 h-4 text-blue-600" />
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-gray-800" />
                         </div>
-                        <div className="text-center">
-                          <div className="font-semibold text-gray-900 text-xs">{social.name}</div>
-                          <div className="text-gray-600 text-xs">{social.handle}</div>
+                        <div>
+                          <div className="font-semibold text-gray-800">{social.name}</div>
+                          <div className="text-gray-600 text-sm">{social.handle}</div>
                         </div>
                       </div>
                     </div>
@@ -205,15 +206,8 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-300 mt-6 pt-4 text-center bg-white/30 rounded-t-xl">
-          <div className="max-w-4xl mx-auto px-4 py-4">
-            <p className="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium text-sm">
-              © 2025 绝味 JUEWEI all right reserved.
-            </p>
-            <div className="mt-2 text-xs text-gray-500">
-              <p className="font-medium">Juewei Food Canada - Premium Chinese Food Products</p>
-            </div>
-          </div>
+        <div className="border-t border-gray-200 mt-8 pt-8 text-center">
+          <p className="text-gray-600">© 2025 绝味 JUEWEI all right reserved.</p>
         </div>
       </div>
     </footer>
