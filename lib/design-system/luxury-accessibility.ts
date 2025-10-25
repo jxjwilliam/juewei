@@ -362,7 +362,7 @@ export const luxuryColorContrast = {
    * Calculate relative luminance
    */
   getLuminance: (hex: string): number => {
-    const rgb = this.hexToRgb(hex);
+    const rgb = luxuryColorContrast.hexToRgb(hex);
     if (!rgb) return 0;
 
     const { r, g, b } = rgb;
@@ -390,8 +390,13 @@ export const luxuryColorContrast = {
    * Calculate contrast ratio
    */
   getContrastRatio: (color1: string, color2: string): number => {
-    const lum1 = this.getLuminance(color1);
-    const lum2 = this.getLuminance(color2);
+    const lum1 = luxuryColorContrast.getLuminance(color1);
+    const lum2 = luxuryColorContrast.getLuminance(color2);
+    
+    // Handle edge cases where luminance might be 0
+    if (lum1 === 0 && lum2 === 0) return 1;
+    if (lum1 === 0 || lum2 === 0) return 0;
+    
     const brightest = Math.max(lum1, lum2);
     const darkest = Math.min(lum1, lum2);
     return (brightest + 0.05) / (darkest + 0.05);
@@ -401,7 +406,8 @@ export const luxuryColorContrast = {
    * Check WCAG compliance
    */
   meetsWCAG: (foreground: string, background: string, level: keyof typeof ACCESSIBILITY_LEVELS = 'AA'): boolean => {
-    const ratio = this.getContrastRatio(foreground, background);
+    const ratio = luxuryColorContrast.getContrastRatio(foreground, background);
+    if (ratio === 0) return false; // Invalid colors
     return level === 'AA' ? ratio >= 4.5 : ratio >= 7;
   },
 
@@ -413,13 +419,13 @@ export const luxuryColorContrast = {
     
     // Generate lighter and darker variants
     for (let i = 0; i <= 100; i += 10) {
-      const lightVariant = this.lightenColor(baseColor, i);
-      const darkVariant = this.darkenColor(baseColor, i);
+      const lightVariant = luxuryColorContrast.lightenColor(baseColor, i);
+      const darkVariant = luxuryColorContrast.darkenColor(baseColor, i);
       
-      if (this.meetsWCAG(lightVariant, backgroundColor)) {
+      if (luxuryColorContrast.meetsWCAG(lightVariant, backgroundColor)) {
         variants.push(lightVariant);
       }
-      if (this.meetsWCAG(darkVariant, backgroundColor)) {
+      if (luxuryColorContrast.meetsWCAG(darkVariant, backgroundColor)) {
         variants.push(darkVariant);
       }
     }
@@ -431,7 +437,7 @@ export const luxuryColorContrast = {
    * Lighten color
    */
   lightenColor: (hex: string, percent: number): string => {
-    const rgb = this.hexToRgb(hex);
+    const rgb = luxuryColorContrast.hexToRgb(hex);
     if (!rgb) return hex;
     
     const { r, g, b } = rgb;
@@ -446,7 +452,7 @@ export const luxuryColorContrast = {
    * Darken color
    */
   darkenColor: (hex: string, percent: number): string => {
-    const rgb = this.hexToRgb(hex);
+    const rgb = luxuryColorContrast.hexToRgb(hex);
     if (!rgb) return hex;
     
     const { r, g, b } = rgb;

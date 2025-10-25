@@ -159,7 +159,7 @@ const config: Config = {
   },
   plugins: [
     // Custom luxury utilities
-    function({ addUtilities, addComponents, theme }) {
+    function({ addUtilities, addComponents, theme }: { addUtilities: any, addComponents: any, theme: any }) {
       // Luxury utility classes
       addUtilities({
         '.luxury-hover': {

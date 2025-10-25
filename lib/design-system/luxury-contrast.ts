@@ -61,18 +61,18 @@ export class LuxuryContrastValidator {
     const isAccessible = ratio >= threshold;
     const needsImprovement = ratio < threshold;
     
-    let level: 'AA' | 'AAA' | 'FAIL' = 'FAIL';
+    let resultLevel: 'AA' | 'AAA' | 'FAIL' = 'FAIL';
     let score = 0;
     const recommendations: string[] = [];
     
     if (ratio >= wcagStandards.AAA.normal) {
-      level = 'AAA';
+      resultLevel = 'AAA';
       score = 100;
     } else if (ratio >= wcagStandards.AA.normal) {
-      level = 'AA';
+      resultLevel = 'AA';
       score = 75;
     } else if (ratio >= wcagStandards.AA.large) {
-      level = 'AA';
+      resultLevel = 'AA';
       score = 50;
       recommendations.push('Consider using larger text for better readability');
     } else {
@@ -88,7 +88,7 @@ export class LuxuryContrastValidator {
     
     return {
       ratio,
-      level,
+      level: resultLevel,
       score,
       recommendations,
       isAccessible,

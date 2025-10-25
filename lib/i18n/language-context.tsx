@@ -41,7 +41,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       
       for (const k of keys) {
         if (value && typeof value === 'object' && k in value) {
-          value = value[k]
+          value = (value as any)[k]
         } else {
           console.warn(`Translation key "${key}" not found for language "${language}"`)
           return key // Return key as fallback

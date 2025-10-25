@@ -39,7 +39,7 @@ export interface TranslationObject {
   [key: string]: string | TranslationObject;
 }
 
-export interface Translations {
+export type Translations = {
   [language in Language]: TranslationObject;
 }
 

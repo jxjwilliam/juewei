@@ -28,7 +28,6 @@ export function ProductsHeroSection() {
           alt="绝味产品展示 - 精选美食系列"
           fill
           className="object-cover object-center"
-          sizes={mobileSizes('hero')}
           priority={true}
         />
         {/* Luxury Overlay */}

@@ -129,7 +129,8 @@ export class LuxuryInteractions {
     type: InteractionType,
     variant: InteractionVariant = 'luxury'
   ) {
-    return luxuryInteractionConfig[type][variant] || luxuryInteractionConfig[type].luxury;
+    const config = luxuryInteractionConfig[type] as Record<InteractionVariant, any>;
+    return config[variant] || config.luxury || config.subtle;
   }
 
   /**
@@ -170,7 +171,7 @@ export class LuxuryInteractions {
   static generateInteractionStyles(
     type: InteractionType,
     variant: InteractionVariant = 'luxury'
-  ): Record<string, any> {
+  ): Record<string, unknown> {
     const config = this.getInteractionConfig(type, variant);
     
     return {

@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { R2Image } from "@/components/ui/r2-image"
 import { getR2Url } from "@/lib/r2/get-r2-url"
 import { mobileSizes, mobilePriority } from "@/lib/design-system/luxury-mobile-images"
@@ -12,7 +11,6 @@ import Link from "next/link"
 import { ArrowRight, Star, MapPin, Clock, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import { useState, useEffect } from "react"
 import { getCarouselSlides } from "@/lib/data/products"
-import { Swipeable } from "@/components/luxury/luxury-mobile-touch"
 
 const productCarouselSlides = getCarouselSlides()
 
@@ -58,7 +56,7 @@ export function ProductHeroCarousel() {
       </div>
 
       {/* Carousel Slides */}
-      <Swipeable className="relative w-full h-full" onSwipeLeft={goToNext} onSwipeRight={goToPrevious}>
+      <div className="relative w-full h-full">
         {productCarouselSlides.map((slide, index) => (
           <div
             key={slide.id}
@@ -73,14 +71,13 @@ export function ProductHeroCarousel() {
               alt={`${slide.title} 产品展示`}
               fill
               className="object-cover object-center"
-              sizes={mobileSizes('hero')}
               priority={index === 0 || mobilePriority('hero')}
             />
             {/* Luxury Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-luxury-background-primary/60 via-luxury-background-secondary/40 to-luxury-background-primary/60"></div>
           </div>
         ))}
-      </Swipeable>
+      </div>
 
       {/* Luxury Floating Food Elements - Dynamic based on current slide */}
       <LuxuryAnimation animation="slideUp" delay={0.2}>
@@ -91,7 +88,6 @@ export function ProductHeroCarousel() {
               alt={productCarouselSlides[currentSlide].floatingImageAlt || "产品展示"} 
               fill 
               className="object-contain" 
-              sizes={mobileSizes('card')}
             />
           </LuxuryCard>
         </div>
@@ -100,7 +96,7 @@ export function ProductHeroCarousel() {
       <LuxuryAnimation animation="slideUp" delay={0.4}>
         <div className="absolute bottom-20 left-10 w-24 h-24 opacity-25 luxury-animate-pulse">
           <LuxuryCard variant="glass" className="p-3">
-            <R2Image src={getR2Url("carousel/spicy-lobster6.webp")} alt="麻辣龙虾" fill className="object-contain" sizes={mobileSizes('thumb')} />
+            <R2Image src={getR2Url("carousel/spicy-lobster6.webp")} alt="麻辣龙虾" fill className="object-contain" />
           </LuxuryCard>
         </div>
       </LuxuryAnimation>
@@ -242,14 +238,14 @@ export function ProductHeroCarousel() {
                     </LuxuryCard>
                     
                     {/* Luxury Floating Product Cards */}
-                    <LuxuryAnimation animation="bounce" delay={1.0}>
+                    <LuxuryAnimation animation="scale" delay={1.0}>
                       <LuxuryCard variant="glass" className="absolute -top-4 -right-4 w-20 h-20 p-2 luxury-animate-bounce">
                         <R2Image src={getR2Url("carousel/product6.webp")} alt="产品" fill className="object-contain" />
                       </LuxuryCard>
                     </LuxuryAnimation>
                     
-                    <LuxuryAnimation animation="bounce" delay={1.2}>
-                      <LuxuryCard variant="glass" className="absolute -bottom-4 -left-4 w-16 h-16 p-2 luxury-animate-bounce" style={{ animationDelay: '0.5s' }}>
+                    <LuxuryAnimation animation="scale" delay={1.2}>
+                      <LuxuryCard variant="glass" className="absolute -bottom-4 -left-4 w-16 h-16 p-2 luxury-animate-bounce">
                         <R2Image src={getR2Url("carousel/branch2.webp")} alt="产品展示" fill className="object-contain" />
                       </LuxuryCard>
                     </LuxuryAnimation>

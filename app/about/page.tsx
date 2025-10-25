@@ -57,7 +57,7 @@ export default function AboutPage() {
                   <h2 className="font-serif text-3xl font-bold mb-6 text-foreground">公司简介</h2>
                   <div className="space-y-4 text-foreground leading-relaxed">
                     <p>
-                      十余年来，绝味食品始终专注于卤制食品的研发、生产与销售，以"传递美味与快乐"为品牌使命，构建起集 研发创新、现代化制造、冷链物流、终端零售 于一体的完整产业链体系。
+                      十余年来，绝味食品始终专注于卤制食品的研发、生产与销售，以&ldquo;传递美味与快乐&rdquo;为品牌使命，构建起集 研发创新、现代化制造、冷链物流、终端零售 于一体的完整产业链体系。
                     </p>
                     <p>
                       凭借标准化的生产工艺、严格的品质管控以及敏锐的市场洞察，绝味在全球拥有超过 16,000 家门店，业务覆盖 中国31个省市自治区，并成功进入 新加坡、香港、加拿大 等国际市场，逐步形成了具有全球视野的餐饮品牌格局。
@@ -108,7 +108,7 @@ export default function AboutPage() {
                   
                   <div className="mt-8">
                     <p className="text-foreground">
-                      凭借稳健的制造基础与品牌影响力，绝味食品正不断深化产业协同与全球布局，以创新驱动发展，让"来自中国的卤味香气"飘向世界每一个角落。
+                      凭借稳健的制造基础与品牌影响力，绝味食品正不断深化产业协同与全球布局，以创新驱动发展，让&ldquo;来自中国的卤味香气&rdquo;飘向世界每一个角落。
                     </p>
                   </div>
                 </div>
@@ -119,15 +119,8 @@ export default function AboutPage() {
                     width={400}
                     height={400}
                     className="w-full max-w-md"
-                    loading="lazy"
                     priority={false}
-                    fallback={<div className="w-full max-w-md h-96 bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center text-red-600 text-lg">
-                      <div className="text-center">
-                        <div className="text-4xl mb-2">🏢</div>
-                        <div className="text-lg font-semibold">绝味门店</div>
-                        <div className="text-sm">Juewei Branch</div>
-                      </div>
-                    </div>}
+                    fallback={true}
                   />
                 </div>
               </div>
@@ -183,15 +176,8 @@ export default function AboutPage() {
                     width={300}
                     height={219}
                     className="w-full max-w-md"
-                    loading="lazy"
                     priority={false}
-                    fallback={<div className="w-full max-w-md h-64 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center text-red-600 text-lg">
-                      <div className="text-center">
-                        <div className="text-4xl mb-2">🍖</div>
-                        <div className="text-lg font-semibold">绝味产品</div>
-                        <div className="text-sm">Juewei Products</div>
-                      </div>
-                    </div>}
+                    fallback={true}
                   />
                 </div>
               </div>
@@ -205,7 +191,7 @@ export default function AboutPage() {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-8">我们的理念</h2>
               <div className="space-y-6 text-lg md:text-xl leading-relaxed">
-                <p>绝味食品加拿大分公司将持续秉持 "新鲜、安全、可靠" 的理念，</p>
+                <p>绝味食品加拿大分公司将持续秉持 &ldquo;新鲜、安全、可靠&rdquo; 的理念，</p>
                 <p>不断提升本地化优势，</p>
                 <p>树立值得信赖的国际品牌形象。</p>
               </div>
@@ -225,11 +211,8 @@ export default function AboutPage() {
                     width={150}
                     height={150}
                     className="w-32 h-32 rounded-lg"
-                    loading="lazy"
                     priority={false}
-                    fallback={<div className="w-32 h-32 bg-red-100 rounded-lg flex items-center justify-center text-red-600 text-4xl">
-                      🤝
-                    </div>}
+                    fallback={true}
                   />
                 </div>
                 <div className="text-center md:text-left">

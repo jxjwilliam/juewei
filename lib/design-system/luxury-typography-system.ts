@@ -291,69 +291,49 @@ export class LuxuryTypography {
 // Luxury typography variants
 export const luxuryTypographyVariants = {
   // Display typography
-  Display: (props: { children: React.ReactNode; className?: string }) => (
-    <div className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.display)} ${props.className || ''}`}>
-      {props.children}
-    </div>
-  ),
+  Display: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Heading typography
-  H1: (props: { children: React.ReactNode; className?: string }) => (
-    <h1 className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.heading.h1)} ${props.className || ''}`}>
-      {props.children}
-    </h1>
-  ),
+  H1: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
-  H2: (props: { children: React.ReactNode; className?: string }) => (
-    <h2 className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.heading.h2)} ${props.className || ''}`}>
-      {props.children}
-    </h2>
-  ),
+  H2: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
-  H3: (props: { children: React.ReactNode; className?: string }) => (
-    <h3 className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.heading.h3)} ${props.className || ''}`}>
-      {props.children}
-    </h3>
-  ),
+  H3: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
-  H4: (props: { children: React.ReactNode; className?: string }) => (
-    <h4 className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.heading.h4)} ${props.className || ''}`}>
-      {props.children}
-    </h4>
-  ),
+  H4: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
-  H5: (props: { children: React.ReactNode; className?: string }) => (
-    <h5 className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.heading.h5)} ${props.className || ''}`}>
-      {props.children}
-    </h5>
-  ),
+  H5: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
-  H6: (props: { children: React.ReactNode; className?: string }) => (
-    <h6 className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.heading.h6)} ${props.className || ''}`}>
-      {props.children}
-    </h6>
-  ),
+  H6: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Body typography
-  Body: (props: { children: React.ReactNode; size?: 'large' | 'base' | 'small'; className?: string }) => (
-    <p className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.body[props.size || 'base'])} ${props.className || ''}`}>
-      {props.children}
-    </p>
-  ),
+  Body: (props: { children: React.ReactNode; size?: 'large' | 'base' | 'small'; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Accent typography
-  Accent: (props: { children: React.ReactNode; className?: string }) => (
-    <span className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.accent)} ${props.className || ''}`}>
-      {props.children}
-    </span>
-  ),
+  Accent: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Caption typography
-  Caption: (props: { children: React.ReactNode; className?: string }) => (
-    <span className={`${LuxuryTypography.generateClasses(luxuryTypographyPresets.caption)} ${props.className || ''}`}>
-      {props.children}
-    </span>
-  ),
+  Caption: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
 };
 
 // Export all utilities

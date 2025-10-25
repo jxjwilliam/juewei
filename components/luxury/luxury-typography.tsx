@@ -205,7 +205,7 @@ export function LuxuryQuote({
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
       >
-        "
+        &ldquo;
       </motion.div>
       <LuxuryText variant="lead" className="italic">
         {children}

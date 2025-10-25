@@ -361,11 +361,11 @@ export const luxuryTouchInteractions = {
   } = {}): (() => void) => {
     const { onTap, onDoubleTap, onLongPress, onSwipe, onPan } = options;
     
-    const handleTap = (e: CustomEvent) => onTap?.(e);
-    const handleDoubleTap = (e: CustomEvent) => onDoubleTap?.(e);
-    const handleLongPress = (e: CustomEvent) => onLongPress?.(e);
-    const handleSwipe = (e: CustomEvent) => onSwipe?.(e);
-    const handlePan = (e: CustomEvent) => onPan?.(e);
+    const handleTap = (e: Event) => onTap?.(e as CustomEvent);
+    const handleDoubleTap = (e: Event) => onDoubleTap?.(e as CustomEvent);
+    const handleLongPress = (e: Event) => onLongPress?.(e as CustomEvent);
+    const handleSwipe = (e: Event) => onSwipe?.(e as CustomEvent);
+    const handlePan = (e: Event) => onPan?.(e as CustomEvent);
     
     element.addEventListener('luxury-tap', handleTap);
     element.addEventListener('luxury-double-tap', handleDoubleTap);
@@ -532,7 +532,7 @@ export const luxuryMobilePerformance = {
    * Get optimal animation settings for mobile
    */
   getOptimalAnimationSettings: (deviceType: string) => {
-    const canHandleComplex = this.canHandleComplexAnimations();
+    const canHandleComplex = luxuryMobilePerformance.canHandleComplexAnimations();
     
     switch (deviceType) {
       case DEVICE_TYPES.MOBILE:
@@ -599,10 +599,10 @@ export const luxuryMobileAccessibility = {
     document.documentElement.setAttribute('data-mobile-accessibility', 'enabled');
     
     // Setup touch accessibility
-    this.setupTouchAccessibility();
+    luxuryMobileAccessibility.setupTouchAccessibility();
     
     // Setup mobile screen reader support
-    this.setupMobileScreenReaderSupport();
+    luxuryMobileAccessibility.setupMobileScreenReaderSupport();
   },
 
   /**

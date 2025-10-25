@@ -6,11 +6,17 @@
  */
 
 // Core design system components
+import { luxuryColors, luxuryColorVariants, luxuryColorUtils } from './luxury-colors';
+import { luxuryTypography, luxuryTypographyVariants, luxuryTypographyUtils } from './luxury-typography';
+import { luxuryAnimations, luxuryAnimationVariants, luxuryAnimationUtils } from './luxury-animations';
+
+// Font system
+import { luxuryFonts, luxuryHeadingFont, luxuryBodyFont, luxuryFontUtils } from '../fonts/luxury-fonts';
+
+// Re-export for external use
 export { luxuryColors, luxuryColorVariants, luxuryColorUtils } from './luxury-colors';
 export { luxuryTypography, luxuryTypographyVariants, luxuryTypographyUtils } from './luxury-typography';
 export { luxuryAnimations, luxuryAnimationVariants, luxuryAnimationUtils } from './luxury-animations';
-
-// Font system
 export { luxuryFonts, luxuryHeadingFont, luxuryBodyFont, luxuryFontUtils } from '../fonts/luxury-fonts';
 
 // Re-export types for convenience
@@ -36,7 +42,7 @@ export const luxuryDesignSystemUtils = {
   /**
    * Get design system for a specific variant
    */
-  getDesignSystemVariant: (variant: 'default' | 'mobile' | 'highContrast' | 'reducedMotion' | 'highPerformance') => {
+  getDesignSystemVariant: (variant: 'default' | 'mobile' | 'highContrast') => {
     return {
       colors: luxuryColorUtils.getColor,
       typography: luxuryTypographyUtils.getTypography(variant),

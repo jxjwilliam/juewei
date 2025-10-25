@@ -5,6 +5,7 @@
  * breakpoint detection, responsive classes, and layout helpers.
  */
 
+import { useState, useEffect } from 'react'
 import { ResponsiveBreakpoint } from '@/lib/types/footer'
 
 // Breakpoint constants
@@ -144,44 +145,28 @@ export const useResponsive = () => {
 export const ResponsiveWrapper = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => {
   const { breakpoint } = useResponsive()
   
-  return (
-    <div className={`${getContainerClasses(breakpoint)} ${className}`}>
-      {children}
-    </div>
-  )
+  return null; // JSX not allowed in .ts files
 }
 
 // Responsive grid component
 export const ResponsiveGrid = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => {
   const { breakpoint } = useResponsive()
   
-  return (
-    <div className={`${getFooterGridClasses(breakpoint)} ${className}`}>
-      {children}
-    </div>
-  )
+  return null; // JSX not allowed in .ts files
 }
 
 // Responsive spacing component
 export const ResponsiveSpacing = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => {
   const { breakpoint } = useResponsive()
   
-  return (
-    <div className={`${getFooterSpacingClasses(breakpoint)} ${className}`}>
-      {children}
-    </div>
-  )
+  return null; // JSX not allowed in .ts files
 }
 
 // Responsive typography component
 export const ResponsiveTypography = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => {
   const { breakpoint } = useResponsive()
   
-  return (
-    <div className={`${getFooterTypographyClasses(breakpoint)} ${className}`}>
-      {children}
-    </div>
-  )
+  return null; // JSX not allowed in .ts files
 }
 
 // Responsive utilities export

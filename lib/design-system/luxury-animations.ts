@@ -290,7 +290,7 @@ export const luxuryAnimationUtils = {
     
     // Simple performance detection based on hardware concurrency
     const cores = navigator.hardwareConcurrency || 4;
-    const memory = (navigator as any).deviceMemory || 4;
+    const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory || 4;
     
     if (cores >= 8 && memory >= 8) return 'high';
     if (cores >= 4 && memory >= 4) return 'medium';

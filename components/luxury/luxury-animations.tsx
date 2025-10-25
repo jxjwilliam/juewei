@@ -417,7 +417,7 @@ export function useLuxuryAnimation() {
     shouldReduceMotion,
     isInView,
     setIsInView,
-    getAnimationProps: (animation: string, variant: string = 'default') => {
+    getAnimationProps: (animation: string, variant: 'default' | 'mobile' | 'reducedMotion' | 'highPerformance' = 'default') => {
       if (shouldReduceMotion) {
         return {
           initial: false,

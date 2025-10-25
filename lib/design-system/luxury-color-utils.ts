@@ -38,7 +38,8 @@ export const luxuryColorConversion = {
 
     const max = Math.max(r, g, b);
     const min = Math.min(r, g, b);
-    let h = 0, s = 0, l = (max + min) / 2;
+    let h = 0, s = 0;
+    const l = (max + min) / 2;
 
     if (max !== min) {
       const d = max - min;
@@ -342,11 +343,11 @@ export const luxuryColorTheme = {
   /**
    * Generate CSS custom properties for a theme
    */
-  generateCSSVariables: (theme: Record<string, any>): Record<string, string> => {
+  generateCSSVariables: (theme: Record<string, unknown>): Record<string, string> => {
     const cssVars: Record<string, string> = {};
     
     Object.entries(theme).forEach(([key, value]) => {
-      cssVars[`--luxury-${key}`] = value;
+      cssVars[`--luxury-${key}`] = String(value);
     });
 
     return cssVars;
@@ -355,7 +356,7 @@ export const luxuryColorTheme = {
   /**
    * Apply theme to document
    */
-  applyTheme: (theme: Record<string, any>): void => {
+  applyTheme: (theme: Record<string, unknown>): void => {
     if (typeof document === 'undefined') return;
 
     const root = document.documentElement;

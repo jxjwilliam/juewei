@@ -113,7 +113,9 @@ export class LuxuryTypographyFallbacks {
     variant: string,
     level: 'primary' | 'system' | 'minimal' = 'primary'
   ): string {
-    return luxuryFontFallbacks[level][category][variant] || luxuryFontFallbacks.primary[category][variant];
+    const fallback = luxuryFontFallbacks[level] as any;
+    const primaryFallback = luxuryFontFallbacks.primary as any;
+    return fallback[category][variant] || primaryFallback[category][variant];
   }
 
   /**
@@ -203,7 +205,7 @@ export class LuxuryTypographyFallbacks {
   /**
    * Get font loading status
    */
-  static getFontLoadingStatus(fontFamily: string): keyof typeof fontLoadingStates {
+  static getFontLoadingStatus(fontFamily: string): string {
     if (typeof document === 'undefined') return fontLoadingStates.LOADING;
     
     try {

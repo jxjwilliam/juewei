@@ -3,8 +3,7 @@
 import Link from "next/link"
 import { R2Image } from "@/components/ui/r2-image"
 import { getR2Url } from "@/lib/r2/get-r2-url"
-import { Badge } from "@/components/ui/badge"
-import { Instagram, MessageCircle, Phone, MapPin, Mail, Clock, Shield, Star } from "lucide-react"
+import { Instagram, Phone, MapPin, Mail, Clock, Shield } from "lucide-react"
 
 // Custom SVG icons for social media
 const XiaohongshuIcon = () => (
@@ -132,8 +131,8 @@ export function Footer() {
                     href={link.href}
                     className="block text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all duration-300 py-2 px-2 rounded-lg hover:bg-blue-50 min-h-[44px] flex items-center"
                     onClick={() => {
-                      if (typeof window !== 'undefined' && window.gtag) {
-                        window.gtag('event', 'footer_navigation_click', {
+                      if (typeof window !== 'undefined' && (window as any).gtag) {
+                        (window as any).gtag('event', 'footer_navigation_click', {
                           link_name: link.name,
                           link_href: link.href
                         })
@@ -182,9 +181,8 @@ export function Footer() {
                           width={80}
                           height={80}
                           className="w-full h-full object-cover"
-                          loading="lazy"
                           priority={false}
-                          fallback={<div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs">QR Code</div>}
+                          fallback={true}
                         />
                       </div>
                       <div className="flex items-center gap-2">

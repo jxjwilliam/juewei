@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { R2Image } from "@/components/ui/r2-image"
 import { LuxuryButton } from "@/components/luxury/luxury-button"
 import { LuxuryHeading, LuxuryText } from "@/components/luxury/luxury-typography"
@@ -208,28 +207,26 @@ export function HeroCarousel() {
                   {/* Luxury CTA Buttons */}
                   <LuxuryAnimation animation="slideUp" delay={1.6}>
                     <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                      <LuxuryButton
-                        asChild
-                        variant="primary"
-                        size="lg"
-                        className="text-base px-6 py-4 font-semibold luxury-hover"
-                      >
-                        <Link href={carouselSlides[currentSlide].ctaLink} className="flex items-center gap-2">
+                      <Link href={carouselSlides[currentSlide].ctaLink} className="flex items-center gap-2">
+                        <LuxuryButton
+                          variant="primary"
+                          size="lg"
+                          className="text-base px-6 py-4 font-semibold luxury-hover"
+                        >
                           {carouselSlides[currentSlide].cta}
                           <ArrowRight className="w-4 h-4" />
-                        </Link>
-                      </LuxuryButton>
+                        </LuxuryButton>
+                      </Link>
                       
-                      <LuxuryButton
-                        asChild
-                        variant="outline"
-                        size="lg"
-                        className="text-base px-6 py-4 font-semibold border-2 border-luxury-accent-copper text-luxury-accent-copper hover:bg-luxury-accent-copper hover:text-white"
-                      >
-                        <Link href={carouselSlides[currentSlide].ctaSecondaryLink}>
+                      <Link href={carouselSlides[currentSlide].ctaSecondaryLink}>
+                        <LuxuryButton
+                          variant="outline"
+                          size="lg"
+                          className="text-base px-6 py-4 font-semibold border-2 border-luxury-accent-copper text-luxury-accent-copper hover:bg-luxury-accent-copper hover:text-white"
+                        >
                           {carouselSlides[currentSlide].ctaSecondary}
-                        </Link>
-                      </LuxuryButton>
+                        </LuxuryButton>
+                      </Link>
                     </div>
                   </LuxuryAnimation>
 
@@ -270,14 +267,14 @@ export function HeroCarousel() {
                     </LuxuryCard>
                     
                     {/* Luxury Floating Product Cards */}
-                    <LuxuryAnimation animation="bounce" delay={1.0}>
+                    <LuxuryAnimation animation="scale" delay={1.0}>
                       <LuxuryCard variant="glass" className="absolute -top-4 -right-4 w-20 h-20 p-2 luxury-animate-bounce">
                          <R2Image src={getR2Url("carousel/product6.webp")} alt="产品" fill className="object-contain" />
                       </LuxuryCard>
                     </LuxuryAnimation>
                     
-                    <LuxuryAnimation animation="bounce" delay={1.2}>
-                      <LuxuryCard variant="glass" className="absolute -bottom-4 -left-4 w-16 h-16 p-2 luxury-animate-bounce" style={{ animationDelay: '0.5s' }}>
+                    <LuxuryAnimation animation="scale" delay={1.2}>
+                      <LuxuryCard variant="glass" className="absolute -bottom-4 -left-4 w-16 h-16 p-2 luxury-animate-bounce">
                          <R2Image src={getR2Url("carousel/branch2.webp")} alt="产品展示" fill className="object-contain" />
                       </LuxuryCard>
                     </LuxuryAnimation>

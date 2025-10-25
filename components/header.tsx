@@ -5,7 +5,6 @@ import { R2Image } from "@/components/ui/r2-image"
 import { getR2Url } from "@/lib/r2/get-r2-url"
 import { Phone, MapPin } from "lucide-react"
 import { LuxuryButton } from "@/components/luxury/luxury-button"
-import { LuxuryText } from "@/components/luxury/luxury-typography"
 import { LuxuryAnimation } from "@/components/luxury/luxury-animations"
 import { LuxuryMobileNavigation } from "@/components/luxury/luxury-mobile-navigation"
 import { LanguageSwitcher } from "@/components/language-switcher"
@@ -102,26 +101,24 @@ export function Header() {
             {/* CTA Buttons */}
             <LuxuryAnimation animation="slideLeft" delay={0.8}>
               <div className="hidden lg:flex items-center gap-3">
-                <LuxuryButton
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300"
-                >
-                  <Link href="/contact">
+                <Link href="/contact">
+                  <LuxuryButton
+                    variant="outline"
+                    size="sm"
+                    className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300"
+                  >
                     <span suppressHydrationWarning>{typeof t === 'function' ? t("nav.contact") : "联系我们"}</span>
-                  </Link>
-                </LuxuryButton>
-                <LuxuryButton
-                  asChild
-                  variant="primary"
-                  size="sm"
-                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold"
-                >
-                  <Link href="/partnership">
+                  </LuxuryButton>
+                </Link>
+                <Link href="/partnership">
+                  <LuxuryButton
+                    variant="primary"
+                    size="sm"
+                    className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold"
+                  >
                     <span suppressHydrationWarning>{typeof t === 'function' ? t("nav.partnership") : "合作下单"}</span>
-                  </Link>
-                </LuxuryButton>
+                  </LuxuryButton>
+                </Link>
               </div>
             </LuxuryAnimation>
 

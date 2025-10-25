@@ -41,18 +41,7 @@ yarn-error.log*
 next-env.d.ts
 scripts/
 
-# R2 migrated images (cleaned up)
-/public/carousel1/
-/public/carousel2/
-/public/*.webp
-/public/*.jpg
-/public/*.jpeg
-/public/*.png
-/public/*.gif
-!/public/fonts/
-!/public/favicon.ico
-!/public/icon.ico
-!/public/apple-icon.ico
-!/public/manifest.json
-!/public/robots.txt
-!/public/sitemap.xml
+# AI
+.cursor/
+.specify/
+.vscode/

@@ -108,12 +108,12 @@ export class LuxuryPerformanceMonitor {
    * Monitor memory usage
    */
   private monitorMemory(): void {
-    if (typeof performance === 'undefined' || !performance.memory) return;
+    if (typeof performance === 'undefined' || !(performance as any).memory) return;
 
     const measureMemory = () => {
       if (!this.isMonitoring) return;
 
-      this.memoryUsage = performance.memory.usedJSHeapSize / 1024 / 1024; // Convert to MB
+      this.memoryUsage = (performance as any).memory.usedJSHeapSize / 1024 / 1024; // Convert to MB
       
       setTimeout(measureMemory, 1000); // Check every second
     };
@@ -512,8 +512,8 @@ export const luxuryPerformanceOptimization = {
     let withinBudget = true;
 
     // Check if we're within performance budget
-    if (typeof performance !== 'undefined' && performance.memory) {
-      const memoryUsage = performance.memory.usedJSHeapSize / 1024 / 1024;
+    if (typeof performance !== 'undefined' && (performance as any).memory) {
+      const memoryUsage = (performance as any).memory.usedJSHeapSize / 1024 / 1024;
       if (memoryUsage > 100) {
         withinBudget = false;
         recommendations.push('Memory usage exceeds budget. Consider optimizing resources.');

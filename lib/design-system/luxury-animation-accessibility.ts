@@ -8,7 +8,7 @@ export class LuxuryAnimationAccessibility {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
-  static withReducedMotion<T extends Record<string, any>>(animation: T, fallback: T): T {
+  static withReducedMotion<T extends Record<string, unknown>>(animation: T, fallback: T): T {
     return this.prefersReducedMotion() ? fallback : animation;
   }
 

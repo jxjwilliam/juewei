@@ -69,20 +69,22 @@ export function LuxuryMobileNavigation({
             </nav>
 
             <div className="flex flex-col gap-3 pt-4">
-              <LuxuryButton
-                asChild
-                variant="outline"
-                className="w-full border-luxury-accent-copper text-luxury-accent-copper hover:bg-luxury-accent-copper hover:text-white"
-              >
-                <Link href="/contact" onClick={() => setIsOpen(false)}>联系我们</Link>
-              </LuxuryButton>
-              <LuxuryButton
-                asChild
-                variant="primary"
-                className="w-full bg-gradient-to-r from-luxury-spice to-luxury-accent-copper hover:from-luxury-spice hover:to-luxury-accent-gold text-white font-semibold"
-              >
-                <Link href="/partnership" onClick={() => setIsOpen(false)}>合作下单</Link>
-              </LuxuryButton>
+              <Link href="/contact" onClick={() => setIsOpen(false)}>
+                <LuxuryButton
+                  variant="outline"
+                  className="w-full border-luxury-accent-copper text-luxury-accent-copper hover:bg-luxury-accent-copper hover:text-white"
+                >
+                  联系我们
+                </LuxuryButton>
+              </Link>
+              <Link href="/partnership" onClick={() => setIsOpen(false)}>
+                <LuxuryButton
+                  variant="primary"
+                  className="w-full bg-gradient-to-r from-luxury-spice to-luxury-accent-copper hover:from-luxury-spice hover:to-luxury-accent-gold text-white font-semibold"
+                >
+                  合作下单
+                </LuxuryButton>
+              </Link>
             </div>
           </div>
         </SheetContent>

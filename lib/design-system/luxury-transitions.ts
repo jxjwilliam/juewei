@@ -268,6 +268,9 @@ export class LuxuryTransitions {
     }
     
     if (type === 'slide' && direction) {
+      if (direction === 'in' || direction === 'out') {
+        return luxuryTransitionPresets.slide.up; // Default to up for in/out
+      }
       return luxuryTransitionPresets.slide[direction];
     }
     

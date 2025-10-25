@@ -65,8 +65,8 @@ export function mobileFontStack(language: Language): string {
 export function mobileHeading({
   level = 1,
   language = 'en',
-  leading = mobileLeading.snug,
-  tracking = mobileTracking.tight,
+  leading = 'snug',
+  tracking = 'tight',
 }: {
   level?: 1 | 2 | 3
   language?: Language

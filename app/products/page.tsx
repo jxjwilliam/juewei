@@ -88,7 +88,6 @@ export default function ProductsPage() {
                             alt={product.name}
                             fill
                             className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate"
-                            sizes="(max-width: 640px) 92vw, 50vw"
                           />
                           {product.popular && (
                             <Badge className="absolute top-4 left-4 bg-red-600 text-white">
@@ -155,7 +154,7 @@ export default function ProductsPage() {
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 overflow-hidden">
                       <CardContent className="p-0">
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <R2Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes="(max-width: 640px) 92vw, 50vw" />
+                          <R2Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate"  />
                           {product.popular && <Badge className="absolute top-4 left-4 bg-red-600 text-white">热门推荐</Badge>}
                         </div>
                         <div className="p-6 space-y-4">
@@ -182,7 +181,7 @@ export default function ProductsPage() {
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 overflow-hidden">
                       <CardContent className="p-0">
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <R2Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes="(max-width: 640px) 92vw, 50vw" />
+                          <R2Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate"  />
                           {product.popular && <Badge className="absolute top-4 left-4 bg-red-600 text-white">热门推荐</Badge>}
                         </div>
                         <div className="p-6 space-y-4">
@@ -209,7 +208,7 @@ export default function ProductsPage() {
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-primary/50 overflow-hidden">
                       <CardContent className="p-0">
                         <div className="relative h-48 bg-gradient-to-br from-red-50 to-orange-50 overflow-hidden">
-                          <R2Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate" sizes="(max-width: 640px) 92vw, 50vw" />
+                          <R2Image src={product.image} alt={product.name} fill className="object-contain group-hover:scale-110 transition-transform duration-500 animate-grow-rotate"  />
                           {product.popular && <Badge className="absolute top-4 left-4 bg-red-600 text-white">热门推荐</Badge>}
                         </div>
                         <div className="p-6 space-y-4">

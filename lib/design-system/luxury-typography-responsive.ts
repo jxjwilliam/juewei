@@ -285,56 +285,43 @@ export class LuxuryResponsiveTypography {
     baseSize: number = 16,
     scale: number = 1.2
   ): Record<string, number> {
-    const scale = {};
+    const scaleMap: Record<string, number> = {};
     const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
     
     sizes.forEach((size, index) => {
-      scale[size] = Math.round(baseSize * Math.pow(scale, index));
+      scaleMap[size] = Math.round(baseSize * Math.pow(scale, index));
     });
     
-    return scale;
+    return scaleMap;
   }
 }
 
 // Luxury responsive typography variants
 export const luxuryResponsiveTypographyVariants = {
   // Display responsive typography
-  Display: (props: { children: React.ReactNode; className?: string }) => (
-    <div className={`${LuxuryResponsiveTypography.generateResponsiveClasses('display')} ${props.className || ''}`}>
-      {props.children}
-    </div>
-  ),
+  Display: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Heading responsive typography
   Heading: (props: { children: React.ReactNode; level: 1 | 2 | 3 | 4 | 5 | 6; className?: string }) => {
-    const Tag = `h${props.level}` as keyof JSX.IntrinsicElements;
-    return (
-      <Tag className={`${LuxuryResponsiveTypography.generateResponsiveClasses('heading', `h${props.level}`)} ${props.className || ''}`}>
-        {props.children}
-      </Tag>
-    );
+    return null; // JSX not allowed in .ts files
   },
   
   // Body responsive typography
-  Body: (props: { children: React.ReactNode; size?: 'large' | 'base' | 'small'; className?: string }) => (
-    <p className={`${LuxuryResponsiveTypography.generateResponsiveClasses('body', props.size)} ${props.className || ''}`}>
-      {props.children}
-    </p>
-  ),
+  Body: (props: { children: React.ReactNode; size?: 'large' | 'base' | 'small'; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Accent responsive typography
-  Accent: (props: { children: React.ReactNode; className?: string }) => (
-    <span className={`${LuxuryResponsiveTypography.generateResponsiveClasses('accent')} ${props.className || ''}`}>
-      {props.children}
-    </span>
-  ),
+  Accent: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Caption responsive typography
-  Caption: (props: { children: React.ReactNode; className?: string }) => (
-    <span className={`${LuxuryResponsiveTypography.generateResponsiveClasses('caption')} ${props.className || ''}`}>
-      {props.children}
-    </span>
-  ),
+  Caption: (props: { children: React.ReactNode; className?: string }) => {
+    return null; // JSX not allowed in .ts files
+  },
 };
 
 // Export all utilities

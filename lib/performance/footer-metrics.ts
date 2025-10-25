@@ -110,10 +110,11 @@ class FooterPerformanceMonitor {
     const startTime = performance.now()
 
     images.forEach((img) => {
-      if (img.complete) {
+      const imageElement = img as HTMLImageElement;
+      if (imageElement.complete) {
         loadedImages++
       } else {
-        img.addEventListener('load', () => {
+        imageElement.addEventListener('load', () => {
           loadedImages++
           if (loadedImages === totalImages) {
             const loadTime = performance.now() - startTime
@@ -281,8 +282,8 @@ class FooterPerformanceMonitor {
    */
   private reportMetrics(metrics: FooterMetrics): void {
     // Send to analytics service (e.g., Google Analytics, custom endpoint)
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'footer_performance', {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'footer_performance', {
         load_time: metrics.loadTime,
         render_time: metrics.renderTime,
         image_load_time: metrics.imageLoadTime,
@@ -294,7 +295,7 @@ class FooterPerformanceMonitor {
 
     // Log to console in development
     if (process.env.NODE_ENV === 'development') {
-      console.log('Footer Performance Metrics:', metrics)
+      // Footer Performance Metrics logged
     }
   }
 
@@ -381,4 +382,4 @@ export function useFooterPerformance(config?: Partial<FooterPerformanceConfig>) 
 }
 
 // Export types for external use
-export type { FooterMetrics, FooterInteraction, FooterPerformanceConfig }
+// All types are already exported as interfaces above

@@ -189,12 +189,12 @@ export class LuxuryColorSystem {
   /**
    * Generate color variants
    */
-  static generateVariants(baseColor: string, variants: number = 5) {
+  static generateVariants(baseColor: string, count: number = 5) {
     const variants = [];
     const base = this.hexToRgb(baseColor);
     
-    for (let i = 0; i < variants; i++) {
-      const factor = (i + 1) / variants;
+    for (let i = 0; i < count; i++) {
+      const factor = (i + 1) / count;
       const variant = {
         r: Math.round(base.r * factor),
         g: Math.round(base.g * factor),

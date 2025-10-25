@@ -546,21 +546,21 @@ export const luxuryVariantUtils = {
       animation: ANIMATION_VARIANT_CONFIGS,
     };
     
-    return configs[component]?.[variant] || {};
+    return (configs as any)[component]?.[variant] || {};
   },
 
   /**
    * Get size configuration
    */
   getSizeConfig: (size: string): any => {
-    return SIZE_VARIANT_CONFIGS[size] || SIZE_VARIANT_CONFIGS[SIZE_VARIANTS.MD];
+    return (SIZE_VARIANT_CONFIGS as any)[size] || SIZE_VARIANT_CONFIGS[SIZE_VARIANTS.MD];
   },
 
   /**
    * Get color configuration
    */
   getColorConfig: (color: string): any => {
-    return COLOR_VARIANT_CONFIGS[color] || COLOR_VARIANT_CONFIGS[COLOR_VARIANTS.PRIMARY];
+    return (COLOR_VARIANT_CONFIGS as any)[color] || COLOR_VARIANT_CONFIGS[COLOR_VARIANTS.PRIMARY];
   },
 
   /**
@@ -582,7 +582,7 @@ export const luxuryVariantUtils = {
       animation: Object.values(ANIMATION_VARIANTS),
     };
     
-    return validVariants[component]?.includes(variant) || false;
+    return (validVariants as any)[component]?.includes(variant) || false;
   },
 
   /**
@@ -597,7 +597,7 @@ export const luxuryVariantUtils = {
       animation: Object.values(ANIMATION_VARIANTS),
     };
     
-    return variants[component] || [];
+    return (variants as any)[component] || [];
   },
 };
 

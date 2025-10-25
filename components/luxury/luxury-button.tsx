@@ -13,6 +13,7 @@ interface LuxuryButtonProps {
   className?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
+  asChild?: boolean;
 }
 
 export function LuxuryButton({
@@ -24,6 +25,7 @@ export function LuxuryButton({
   className,
   onClick,
   type = 'button',
+  asChild = false,
 }: LuxuryButtonProps) {
   const variants = {
     primary: 'bg-gradient-to-r from-luxury-copper to-luxury-gold text-white hover:from-luxury-gold hover:to-luxury-copper',
@@ -42,40 +44,64 @@ export function LuxuryButton({
 
   const animationProps = luxuryAnimationUtils.generateFramerMotionProps('hover', 'default');
 
+  const buttonClasses = cn(
+    // Base styles
+    'relative overflow-hidden rounded-luxury font-luxury-body font-semibold transition-all duration-300 ease-in-out',
+    'focus:outline-none focus:ring-2 focus:ring-luxury-accent-copper focus:ring-offset-2',
+    'disabled:opacity-50 disabled:cursor-not-allowed',
+    
+    // Variant styles
+    variants[variant],
+    
+    // Size styles
+    sizes[size],
+    
+    // Luxury hover effects
+    'luxury-hover',
+    
+    className
+  );
+
+  if (asChild) {
+    return (
+      <motion.div
+        className={buttonClasses}
+        whileHover={!disabled && !loading ? {
+          y: -2,
+          scale: 1.02,
+          transition: { duration: 0.3, ease: "easeInOut" }
+        } : {}}
+        whileTap={!disabled && !loading ? {
+          scale: 0.98,
+          transition: { duration: 0.1, ease: "easeInOut" }
+        } : {}}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
   return (
     <motion.button
       type={type}
       disabled={disabled || loading}
       onClick={onClick}
-      className={cn(
-        // Base styles
-        'relative overflow-hidden rounded-luxury font-luxury-body font-semibold transition-all duration-300 ease-in-out',
-        'focus:outline-none focus:ring-2 focus:ring-luxury-accent-copper focus:ring-offset-2',
-        'disabled:opacity-50 disabled:cursor-not-allowed',
-        
-        // Variant styles
-        variants[variant],
-        
-        // Size styles
-        sizes[size],
-        
-        // Luxury hover effects
-        'luxury-hover',
-        
-        className
-      )}
+      className={buttonClasses}
       whileHover={!disabled && !loading ? {
         y: -2,
         scale: 1.02,
-        transition: { duration: 0.3, ease: 'easeInOut' }
+        transition: { duration: 0.3, ease: "easeInOut" }
       } : {}}
       whileTap={!disabled && !loading ? {
         scale: 0.98,
-        transition: { duration: 0.1, ease: 'easeInOut' }
+        transition: { duration: 0.1, ease: "easeInOut" }
       } : {}}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {/* Loading spinner */}
       {loading && (

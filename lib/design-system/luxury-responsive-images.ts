@@ -5,6 +5,7 @@
  * including breakpoint management, image sizing, and responsive behavior.
  */
 
+import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
 // Responsive breakpoints
@@ -302,24 +303,24 @@ export const luxuryResponsiveImageUtils = {
 // Responsive image variants
 export const luxuryResponsiveImageVariants = {
   // Hero responsive image
-  Hero: (props: Omit<LuxuryResponsiveImageProps, 'useCase'>) => (
-    <LuxuryResponsiveImage {...props} useCase="hero" />
-  ),
+  Hero: (props: Omit<LuxuryResponsiveImageProps, 'useCase'>) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Showcase responsive image
-  Showcase: (props: Omit<LuxuryResponsiveImageProps, 'useCase'>) => (
-    <LuxuryResponsiveImage {...props} useCase="showcase" />
-  ),
+  Showcase: (props: Omit<LuxuryResponsiveImageProps, 'useCase'>) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Gallery responsive image
-  Gallery: (props: Omit<LuxuryResponsiveImageProps, 'useCase'>) => (
-    <LuxuryResponsiveImage {...props} useCase="gallery" />
-  ),
+  Gallery: (props: Omit<LuxuryResponsiveImageProps, 'useCase'>) => {
+    return null; // JSX not allowed in .ts files
+  },
   
   // Thumbnail responsive image
-  Thumbnail: (props: Omit<LuxuryResponsiveImageProps, 'useCase'>) => (
-    <LuxuryResponsiveImage {...props} useCase="thumbnail" />
-  ),
+  Thumbnail: (props: Omit<LuxuryResponsiveImageProps, 'useCase'>) => {
+    return null; // JSX not allowed in .ts files
+  },
 };
 
 // Export all utilities

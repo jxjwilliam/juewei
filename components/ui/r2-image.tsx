@@ -40,7 +40,7 @@ export const R2Image: React.FC<R2ImageProps> = ({
       // console.log('Using R2 image:', src, '->', r2Url);
       return r2Url;
     } catch (error) {
-      console.log('R2 unavailable, using local fallback for image:', src);
+      // R2 unavailable, using local fallback
       return getFallbackUrl(src);
     }
   });
@@ -71,7 +71,7 @@ export const R2Image: React.FC<R2ImageProps> = ({
       // console.log('Using R2 image:', src, '->', r2Url);
       setCurrentSrc(r2Url);
     } catch (error) {
-      console.log('R2 unavailable, using local fallback for image:', src);
+      // R2 unavailable, using local fallback
       setCurrentSrc(getFallbackUrl(src));
     }
   }, [src]);
